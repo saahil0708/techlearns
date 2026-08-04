@@ -4,6 +4,14 @@ Welcome to the **Techlearns** repository! This project is organized as a monorep
 
 ---
 
+## 🎯 Product Vision & Core Objective
+
+**Techlearns** is a **Capability Management System (SkillOS)** and **Corporate Experience Learning (CEL)** platform designed to replace conventional LMS video-watching with real company-style workflow simulations, verified evidence generation, competitions, and a recruiter-ready **Skill Passport**.
+
+For full details on our strategic differentiation, key pillars, and architecture implications, see [`docs/VISION.md`](./docs/VISION.md).
+
+---
+
 ## 📁 Repository Architecture
 
 ```text
