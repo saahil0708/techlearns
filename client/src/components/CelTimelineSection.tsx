@@ -5,7 +5,7 @@ import {
   Kanban,
   Video,
   GitBranch,
-  UsersCheck,
+  UserCheck,
   Presentation,
   ShieldCheck,
   ArrowRight,
@@ -32,7 +32,7 @@ export default function CelTimelineSection() {
     { title: "Sprint Planning", icon: Kanban, desc: "Break down product epics into manageable Jira-style user stories and estimate story points every week." },
     { title: "Daily Standup", icon: Video, desc: "Summarize yesterday's progress, today's goals, and flag blockers with your agile team pod." },
     { title: "Git Workflow & PRs", icon: GitBranch, desc: "Branching strategies, conventional commits, rebase workflows, and clean pull request descriptions." },
-    { title: "Peer & Mentor Review", icon: UsersCheck, desc: "Receive line-by-line code review comments from senior engineering leads before merging to main." },
+    { title: "Peer & Mentor Review", icon: UserCheck, desc: "Receive line-by-line code review comments from senior engineering leads before merging to main." },
     { title: "Demo Day", icon: Presentation, desc: "Present your production sprint release to industry experts and receive live feedback." },
     { title: "Industry Review", icon: ShieldCheck, desc: "Verified evaluations stored directly inside your recruiter-facing Skill Passport." },
   ];
