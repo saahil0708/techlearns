@@ -1,15 +1,15 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"
+import { config_app } from "../config/config.js"
 
-const connectDB = async () => {
-  try {
-    const connectionInstance = await mongoose.connect(
-      process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/techlearns"
-    );
-    console.log(`\n✅ MongoDB Connected! DB Host: ${connectionInstance.connection.host}`);
-  } catch (error) {
-    console.error("❌ MongoDB connection error:", error.message);
-    process.exit(1);
-  }
-};
+const MONGO_URI = config_app.MONGO_URI
 
-export default connectDB;
+const connectDB = () => {
+  mongoose.connect(MONGO_URI)
+    .then(() => console.log(`Connected to MongoDB!`))
+    .catch((err) => {
+      console.error(`Error connecting to MongoDB: ${err}`)
+      process.exit(1)
+    })
+}
+
+export default connectDB

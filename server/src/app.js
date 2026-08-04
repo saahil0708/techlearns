@@ -1,12 +1,13 @@
 import express from "express";
 import cors from "cors";
+import { config_app } from "./config/config.js";
 
 const app = express();
 
 // Middlewares
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:3000",
+    origin: config_app.CLIENT_URL,
     credentials: true,
   })
 );
