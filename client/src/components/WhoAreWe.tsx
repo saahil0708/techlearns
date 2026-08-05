@@ -1,30 +1,34 @@
 "use client";
 import React, { useState } from 'react';
-import { ArrowUpRight, Star } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 const PILLARS = [
   {
     id: '01',
     title: 'AGILE ECOSYSTEM',
-    color: 'text-purple-700',
+    color: 'text-purple-600',
+    bgHover: 'bg-purple-100/40',
     description: 'We abandon traditional classrooms. You are dropped into an elite engineering team running real sprint cycles, daily standups, and rigorous code reviews from day one.',
   },
   {
     id: '02',
     title: 'REAL PRODUCTS',
-    color: 'text-blue-700',
+    color: 'text-blue-600',
+    bgHover: 'bg-blue-100/40',
     description: 'No more toy projects. You will architect, build, and deploy highly scalable applications that solve actual problems for real-world users.',
   },
   {
     id: '03',
     title: 'SKILL PASSPORT',
-    color: 'text-[#111]',
+    color: 'text-zinc-800',
+    bgHover: 'bg-zinc-200/40',
     description: 'Certificates are dead. Graduate with a verifiable, blockchain-backed portfolio that proves exactly what you built and how you contributed.',
   },
   {
     id: '04',
     title: 'THE CHALLENGES',
-    color: 'text-purple-700',
+    color: 'text-fuchsia-600',
+    bgHover: 'bg-fuchsia-100/40',
     description: 'Test your mettle against the best. Compete in nationwide hackathons and engineering challenges to fast-track your recognition in the tech industry.',
   }
 ];
@@ -33,7 +37,7 @@ export default function WhoAreWe() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section id="who-are-we" className="relative py-24 sm:py-32 bg-[#F4F5F7] overflow-hidden border-t border-black/5">
+    <section id="who-are-we" className="relative pt-36 pb-24 sm:pt-48 sm:pb-32 bg-[#e4e6ea] overflow-hidden border-t border-black/5">
       
       {/* Background Ambient Glow */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
@@ -47,69 +51,93 @@ export default function WhoAreWe() {
           
           {/* Left: Tag (Heading) */}
           <div className="flex items-center gap-3 shrink-0 lg:pt-3">
-            <Star className="w-5 h-5 text-purple-600 fill-purple-600" />
-            <span className="text-[18px] font-bold tracking-widest uppercase text-gray-900">
+            <span className="text-[44px] font-serif text-purple-600 leading-[0] translate-y-2 drop-shadow-md">*</span>
+            <span className="text-[18px] tracking-widest uppercase text-gray-900 font-bold">
               WHO WE ARE
             </span>
           </div>
           
           {/* Right: Massive Text (Subheading) */}
           <div className="flex-1 max-w-5xl">
-            <h2 className="text-4xl sm:text-5xl md:text-[64px] font-black text-gray-900 leading-[0.95] tracking-tight uppercase">
+            <h2 className="text-4xl sm:text-5xl md:text-[64px] text-gray-900 leading-[0.95] tracking-tight uppercase font-black">
               WE BRIDGE THE GAP BETWEEN CAMPUS & CORPORATE.
             </h2>
           </div>
           
         </div>
 
-        {/* Interactive Kinetic List */}
-        <div className="flex flex-col w-full border-t border-black/10">
-          {PILLARS.map((pillar, index) => {
-            const isHovered = hoveredIndex === index;
-            const isAnyHovered = hoveredIndex !== null;
-            
-            return (
-              <div 
-                key={pillar.id}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                className={`group relative flex flex-col xl:flex-row xl:items-center justify-between py-10 sm:py-14 xl:py-16 border-b border-black/10 cursor-default transition-all duration-500 ease-out ${isAnyHovered && !isHovered ? 'opacity-30 blur-[2px]' : 'opacity-100'}`}
-              >
-                {/* Index & Huge Title */}
-                <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-10 w-full xl:w-2/3">
-                  <span className={`text-xl md:text-3xl font-mono font-black transition-colors duration-500 ${isHovered ? pillar.color : 'text-black/30'}`}>
+        {/* Massive Typographic Split Layout (No Cards) */}
+        <div className="flex flex-col lg:flex-row w-full h-auto lg:h-[70vh] min-h-[600px] mt-10 lg:mt-20 gap-16 lg:gap-8 items-center border-t border-black/10 pt-16">
+          
+          {/* Left: Giant Navigation Titles */}
+          <div className="flex flex-col w-full lg:w-1/2 justify-center gap-6 lg:gap-4">
+            {PILLARS.map((pillar, index) => {
+              const isActive = hoveredIndex === null ? index === 0 : hoveredIndex === index;
+              
+              return (
+                <div 
+                  key={pillar.id}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  className="group cursor-pointer flex items-center gap-4 sm:gap-8 lg:gap-6"
+                >
+                  <span className={`text-2xl md:text-3xl font-mono font-bold transition-all duration-500 ease-out w-12
+                    ${isActive ? `${pillar.color} translate-x-2` : 'text-black/20'}
+                  `}>
                     {pillar.id}
                   </span>
-                  
                   <h2 
-                    className={`text-5xl sm:text-7xl md:text-8xl lg:text-[110px] font-black uppercase tracking-tight transition-all duration-500 select-none ${isHovered ? pillar.color : 'text-transparent'}`}
-                    style={!isHovered ? { WebkitTextStroke: `1.5px rgba(0,0,0,0.25)` } : {}}
+                    className={`text-[40px] sm:text-6xl md:text-7xl lg:text-[4.5vw] xl:text-[5vw] font-black uppercase tracking-tighter leading-[0.9] transition-all duration-500 ease-out
+                      ${isActive ? `${pillar.color} lg:translate-x-4` : 'text-transparent'}
+                    `}
+                    style={!isActive ? { WebkitTextStroke: '1.5px rgba(0,0,0,0.15)' } : {}}
                   >
                     {pillar.title}
                   </h2>
                 </div>
+              );
+            })}
+          </div>
 
-                {/* Sliding Description Area */}
-                <div className="w-full xl:w-1/3 mt-8 xl:mt-0 overflow-hidden pr-4">
-                  {/* On Mobile: Always visible but fades color. On Desktop: Slides in and fades in. */}
-                  <div className={`transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col gap-6 ${isHovered ? 'xl:translate-y-0 xl:opacity-100' : 'xl:translate-y-[120%] xl:opacity-0'}`}>
-                    <p className={`text-lg sm:text-xl lg:text-2xl font-medium leading-relaxed transition-colors duration-500 ${isHovered ? 'text-gray-900' : 'text-gray-500 xl:text-gray-900'}`}>
+          {/* Right: Dynamic Content Display */}
+          <div className="flex-1 w-full relative h-[400px] lg:h-full flex flex-col justify-center items-start lg:pl-16 overflow-hidden">
+            
+            {PILLARS.map((pillar, index) => {
+              const isActive = hoveredIndex === null ? index === 0 : hoveredIndex === index;
+              
+              return (
+                <div 
+                  key={`content-${pillar.id}`}
+                  className={`absolute inset-0 flex flex-col justify-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
+                    ${isActive ? 'opacity-100 translate-y-0 pointer-events-auto z-10' : 'opacity-0 translate-y-16 pointer-events-none z-0'}
+                  `}
+                >
+                  {/* The Huge Background Number */}
+                  <div className="absolute inset-0 flex items-center justify-end -z-10 pointer-events-none">
+                    <span className={`text-[200px] sm:text-[300px] lg:text-[450px] font-black leading-none select-none transition-colors duration-700
+                      ${isActive ? 'text-black/[0.04]' : 'text-transparent'}
+                    `}>
+                      {pillar.id}
+                    </span>
+                  </div>
+
+                  {/* The Content */}
+                  <div className="relative z-10 max-w-xl">
+                    <p className="text-xl md:text-2xl lg:text-3xl font-medium text-gray-700 leading-[1.6] mb-12">
                       {pillar.description}
                     </p>
-                    <button className={`inline-flex items-center gap-3 font-bold tracking-widest uppercase text-sm sm:text-base group/btn transition-colors duration-300 ${isHovered ? pillar.color : 'text-gray-400 xl:text-gray-900'}`}>
+                    
+                    <button className={`inline-flex items-center gap-4 tracking-widest uppercase text-sm sm:text-base group/btn transition-colors duration-300 ${pillar.color font-bold}`}>
                       Discover More
-                      <ArrowUpRight className="w-6 h-6 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                      <div className={`p-3 sm:p-4 rounded-full bg-white shadow-sm border border-black/5 group-hover/btn:shadow-md transition-all`}>
+                        <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                      </div>
                     </button>
                   </div>
                 </div>
-                
-                {/* Background Hover Flare */}
-                <div 
-                  className={`absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-black/[0.02] to-transparent opacity-0 transition-opacity duration-700 ${isHovered ? 'opacity-100' : ''}`}
-                ></div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+
         </div>
 
       </div>

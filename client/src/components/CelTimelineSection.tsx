@@ -38,10 +38,10 @@ export default function CelTimelineSection() {
   ];
 
   return (
-    <section className="py-20 md:py-28 relative bg-[#070b14] border-t border-white/5 overflow-hidden">
+    <section className="py-20 md:py-28 relative bg-[#252525] border-t border-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-semibold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs uppercase tracking-wider mb-4 font-bold">
             <Sparkles className="w-4 h-4" />
             <span>The Heart of Techlearns</span>
           </div>

@@ -1,72 +1,141 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
-import { Terminal, Shield, ArrowRight } from "lucide-react";
+import React from 'react';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import EmailIcon from '@mui/icons-material/Email';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import PinterestIcon from '@mui/icons-material/Pinterest';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LanguageIcon from '@mui/icons-material/Language';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#05080f] border-t border-white/10 pt-16 pb-12 text-sm text-gray-400">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-10 mb-12">
-          {/* Col 1: Brand */}
-          <div className="md:col-span-2 space-y-4">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 p-0.5 shadow-lg">
-                <div className="w-full h-full bg-[#090d16] rounded-[10px] flex items-center justify-center">
-                  <Terminal className="w-4 h-4 text-indigo-400" />
-                </div>
-              </div>
-              <span className="font-bold text-xl text-white">Techlearns</span>
-            </Link>
-            <p className="text-sm text-gray-400 max-w-sm leading-relaxed">
-              India&apos;s Corporate Experience Learning (CEL) ecosystem. Students learn, build real products, work in agile sprint pods, and graduate with a verified Skill Passport.
+    // No bg color specified, so it inherits the global hazy coal background from layout/page
+    <footer className="relative w-full pt-24 border-t border-purple-500/20 font-sans overflow-hidden bg-transparent">
+
+      {/* Deep purple hazy glow matching the coal texture behavior */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[600px] bg-purple-600/10 blur-[120px] pointer-events-none rounded-full" />
+
+      {/* Main Grid Content - Matches the image layout */}
+      <div className="w-full max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 pb-20">
+
+        {/* Column 1: Brand & Contact Info */}
+        <div className="lg:col-span-4 flex flex-col gap-10">
+
+          <div className="flex items-center gap-4">
+            {/* Custom Sharp 4-Point Star SVG (Matching Image) */}
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
+              <path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z" fill="#a855f7" />
+            </svg>
+            <div className="flex flex-col">
+              <h2 className="text-3xl sm:text-4xl text-white uppercase leading-none flex items-start font-black">
+                TECHLEARNS<sup className="text-sm font-light mt-1 ml-0.5">®</sup>
+              </h2>
+              <span className="text-[9px] tracking-[0.45em] text-white uppercase mt-1.5 ml-1 font-bold">P R E S E N T</span>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <h4 className="text-white uppercase tracking-wider text-sm mb-1 font-bold">Contact Us</h4>
+            <p className="text-sm leading-relaxed text-gray-400">
+              123 Innovation Boulevard,<br />
+              Bengaluru, KA 560001
             </p>
           </div>
 
-          {/* Col 2: Programs */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-mono uppercase tracking-wider font-semibold text-white">Programs</h4>
-            <ul className="space-y-2 text-xs">
-              <li><Link href="#programs" className="hover:text-white transition-colors">Generative AI & LLMOps</Link></li>
-              <li><Link href="#programs" className="hover:text-white transition-colors">Full Stack Engineering</Link></li>
-              <li><Link href="#programs" className="hover:text-white transition-colors">Cybersecurity & DevSecOps</Link></li>
-              <li><Link href="#programs" className="hover:text-white transition-colors">Cloud Native & DevOps</Link></li>
-              <li><Link href="#programs" className="hover:text-white transition-colors">Data Engineering</Link></li>
-            </ul>
-          </div>
-
-          {/* Col 3: Platform */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-mono uppercase tracking-wider font-semibold text-white">Platform</h4>
-            <ul className="space-y-2 text-xs">
-              <li><Link href="#cel" className="hover:text-white transition-colors">CEL Framework</Link></li>
-              <li><Link href="#passport" className="hover:text-white transition-colors">Skill Passport</Link></li>
-              <li><Link href="#competitions" className="hover:text-white transition-colors">Future Skills League</Link></li>
-              <li><Link href="#competitions" className="hover:text-white transition-colors">Recruiter Showcase</Link></li>
-            </ul>
-          </div>
-
-          {/* Col 4: Legal & Contact */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-mono uppercase tracking-wider font-semibold text-white">Contact & Legal</h4>
-            <ul className="space-y-2 text-xs">
-              <li><span className="text-gray-400">Email: support@techlearns.in</span></li>
-              <li><span className="text-gray-400">Location: Bengaluru, India</span></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Terms of Service</Link></li>
-            </ul>
+          <div className="flex flex-col gap-2">
+            <h4 className="text-white uppercase tracking-wider text-sm mb-1 font-bold">Contact Us</h4>
+            <p className="text-sm leading-relaxed text-gray-400">
+              +91 (800) 123-4567
+            </p>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
-          <p>© {new Date().getFullYear()} Techlearns Operating System. All rights reserved.</p>
-          <div className="flex items-center gap-2">
-            <Shield className="w-4 h-4 text-emerald-400" />
-            <span>Encrypted Skill Passport Infrastructure</span>
-          </div>
+        {/* Column 2: Pages */}
+        <div className="lg:col-span-2 flex flex-col gap-4 pt-2">
+          <h4 className="text-purple-400 uppercase tracking-wider text-xl mb-3 font-bold">Pages</h4>
+          <Link href="#" className="hover:text-white transition-colors text-sm text-gray-400">Home</Link>
+          <Link href="#" className="hover:text-white transition-colors text-sm text-gray-400">About Us</Link>
+          <Link href="#" className="hover:text-white transition-colors text-sm text-gray-400">Our Services</Link>
+          <Link href="#" className="hover:text-white transition-colors text-sm text-gray-400">Portfolio</Link>
+          <Link href="#" className="hover:text-white transition-colors text-sm text-gray-400">FAQs</Link>
+          <Link href="#" className="hover:text-white transition-colors text-sm text-gray-400">Contact Us</Link>
         </div>
+
+        {/* Column 3: Connect With Us */}
+        <div className="lg:col-span-3 flex flex-col gap-4 pt-2">
+          <h4 className="text-purple-400 uppercase tracking-wider text-xl mb-3 font-bold">Connect With Us</h4>
+
+          <a href="#" className="flex items-center gap-3 hover:text-white transition-colors text-sm text-gray-400 group">
+            <PinterestIcon className="text-purple-500 group-hover:text-white transition-colors" sx={{ fontSize: 18 }} /> Pinterest
+          </a>
+          <a href="#" className="flex items-center gap-3 hover:text-white transition-colors text-sm text-gray-400 group">
+            <GitHubIcon className="text-purple-500 group-hover:text-white transition-colors" sx={{ fontSize: 18 }} /> Github
+          </a>
+          <a href="#" className="flex items-center gap-3 hover:text-white transition-colors text-sm text-gray-400 group">
+            <LinkedInIcon className="text-purple-500 group-hover:text-white transition-colors" sx={{ fontSize: 18 }} /> LinkedIn
+          </a>
+          <a href="#" className="flex items-center gap-3 hover:text-white transition-colors text-sm text-gray-400 group">
+            <LanguageIcon className="text-purple-500 group-hover:text-white transition-colors" sx={{ fontSize: 18 }} /> Behance
+          </a>
+          <a href="#" className="flex items-center gap-3 hover:text-white transition-colors text-sm text-gray-400 group">
+            <LanguageIcon className="text-purple-500 group-hover:text-white transition-colors" sx={{ fontSize: 18 }} /> Dribbble
+          </a>
+          <a href="#" className="flex items-center gap-3 hover:text-white transition-colors text-sm text-gray-400 group">
+            <TwitterIcon className="text-purple-500 group-hover:text-white transition-colors" sx={{ fontSize: 18 }} /> X Twitter
+          </a>
+        </div>
+
+        {/* Column 4: Phone, Email, Text */}
+        <div className="lg:col-span-3 flex flex-col gap-8 pt-2">
+
+          <div className="flex items-center gap-4">
+            <h3 className="text-white text-2xl sm:text-3xl font-black tracking-tighter">(+91) 4356 2345</h3>
+            <div className="flex flex-col text-[10px] leading-tight text-gray-500 uppercase tracking-widest font-bold">
+              <span>Phone</span>
+              <span>Number</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <h3 className="text-white text-2xl sm:text-3xl font-black tracking-tighter">hello@tech.com</h3>
+            <div className="flex flex-col text-[10px] leading-tight text-gray-500 uppercase tracking-widest font-bold">
+              <span>Email</span>
+              <span>Address</span>
+            </div>
+          </div>
+
+          <p className="text-sm leading-relaxed text-gray-400 mt-2">
+            With a team of passionate educators, technologists, and innovators, we specialize in delivering unique solutions that elevate your skills and captivate your mind.
+          </p>
+        </div>
+
       </div>
+
+      {/* Massive Outlined Animated Text */}
+      <div className="w-full relative z-10 pt-4 sm:pt-6 overflow-hidden flex">
+        <motion.div
+          className="flex whitespace-nowrap"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ repeat: Infinity, duration: 35, ease: "linear" }}
+        >
+          {[...Array(4)].map((_, i) => (
+            <span
+              key={i}
+              // Bebas Neue is a condensed font, so we can make the height massively tall
+              className="text-[180px] sm:text-[280px] lg:text-[420px] uppercase leading-none mx-4 sm:mx-8 text-transparent select-none drop-shadow-[0_0_15px_rgba(147,51,234,0.3)]"
+              // The trick to a perfectly sharp, thin outline is a 1px SOLID color stroke.
+              style={{ WebkitTextStroke: '1.5px #a855f7', fontFamily: 'var(--font-bebas)' }}
+            >
+              TECHLEARNS ACADEMY *
+            </span>
+          ))}
+        </motion.div>
+      </div>
+
     </footer>
   );
 }

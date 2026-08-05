@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
 import {
@@ -27,11 +25,11 @@ export default function ProgramsAndCompetitions() {
   ];
 
   return (
-    <section id="programs" className="py-20 md:py-28 relative bg-[#070b14] border-t border-white/5">
+    <section id="programs" className="py-20 md:py-28 relative bg-[#252525] border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs uppercase tracking-wider mb-4 font-bold">
             <Trophy className="w-4 h-4" />
             <span>Corporate Journeys</span>
           </div>

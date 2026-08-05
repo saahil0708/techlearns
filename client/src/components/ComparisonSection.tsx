@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { Check, X, Sparkles, Layers } from "lucide-react";
 
@@ -14,10 +12,10 @@ export default function ComparisonSection() {
   ];
 
   return (
-    <section id="cel" className="py-20 md:py-28 relative bg-[#090d16] bg-grid-pattern">
+    <section id="cel" className="py-20 md:py-28 relative bg-[#252525] bg-grid-pattern">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs uppercase tracking-wider mb-4 font-bold">
             <Layers className="w-4 h-4" />
             <span>The Paradigm Shift</span>
           </div>
@@ -33,9 +31,9 @@ export default function ComparisonSection() {
         <div className="max-w-5xl mx-auto rounded-3xl glass-panel border border-white/10 overflow-hidden shadow-2xl">
           {/* Table Header */}
           <div className="grid grid-cols-1 md:grid-cols-12 bg-[#0e1628] border-b border-white/10 p-4 sm:p-6 text-sm font-bold tracking-wider">
-            <div className="md:col-span-4 text-gray-400 uppercase text-xs">Pillar</div>
-            <div className="md:col-span-4 text-rose-400 uppercase text-xs mt-2 md:mt-0">Traditional Platforms</div>
-            <div className="md:col-span-4 text-indigo-400 uppercase text-xs flex items-center gap-1.5 mt-2 md:mt-0">
+            <div className="md:col-span-4 text-gray-400 uppercase text-xs font-bold">Pillar</div>
+            <div className="md:col-span-4 text-rose-400 uppercase text-xs mt-2 md:mt-0 font-bold">Traditional Platforms</div>
+            <div className="md:col-span-4 text-indigo-400 uppercase text-xs flex items-center gap-1.5 mt-2 md:mt-0 font-bold">
               <Sparkles className="w-4 h-4" /> Techlearns SkillOS
             </div>
           </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import {
   Terminal,
@@ -13,44 +13,10 @@ import {
 } from "lucide-react";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const lastScrollY = useRef(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      // Background styling
-      setScrolled(currentScrollY > 20);
-      
-      // Hide/Show navbar based on scroll direction
-      if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
-        // Scrolling down & past 80px
-        setHidden(true);
-      } else if (currentScrollY < lastScrollY.current) {
-        // Scrolling up
-        setHidden(false);
-      }
-      
-      lastScrollY.current = currentScrollY;
-    };
-    
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        hidden ? "-translate-y-full" : "translate-y-0"
-      } ${
-        scrolled
-          ? " backdrop-blur-md py-3 shadow-xl"
-          : "bg-transparent backdrop-blur-sm py-4 text-[#FFFAFA]"
-      }`}
-    >
+    <header className="absolute top-0 left-0 right-0 z-50 bg-transparent py-4 text-[#FFFAFA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -61,7 +27,7 @@ export default function Navbar() {
             <div className="flex flex-col justify-center">
               <span className="font-bold text-xl tracking-tight text-[#FFFAFA] flex items-center gap-1.5 leading-none">
                 TechLearns
-                <span className="text-[10px] font-mono uppercase tracking-wider font-semibold px-2 py-0.5 rounded-md bg-purple-600/20 text-purple-500 border border-purple-600/30 inline-flex items-center justify-center">
+                <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-md bg-purple-600/20 text-purple-500 border border-purple-600/30 inline-flex items-center justify-center font-bold">
                   SkillOS
                 </span>
               </span>

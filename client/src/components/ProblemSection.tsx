@@ -1,65 +1,127 @@
-"use client";
+import { X } from 'lucide-react';
 
-import React from "react";
-import { AlertTriangle, XCircle, CheckCircle2, ShieldAlert, Award } from "lucide-react";
+const PROBLEM_CARDS = [
+  {
+    title: "ILLUSION OF WORK",
+    description: "Endless tutorials create a false sense of progress without actual skill acquisition.",
+    items: ["Watched 300 hours", "Completed assignments"]
+  },
+  {
+    title: "FALSE SECURITY",
+    description: "Relying on course certificates that hold zero weight in the real job market.",
+    items: ["Got certificate"]
+  },
+  {
+    title: "THE DECAY",
+    description: "Theoretical knowledge fades rapidly when not applied to real-world engineering.",
+    items: ["Forgot everything"]
+  },
+  {
+    title: "THE REALITY",
+    description: "Facing recruiters empty-handed without tangible proof of your capabilities.",
+    items: ["No portfolio", "No recruiter proof"]
+  }
+];
 
 export default function ProblemSection() {
-  const problems = [
-    { title: "Watched 300+ Hours", desc: "Passive video consumption creates an illusion of competence without true execution." },
-    { title: "Completed Basic Assignments", desc: "Toy tutorials and simple todo apps fail to prepare you for real production codebases." },
-    { title: "Got PDF Certificates", desc: "Generic certificates carry zero weight with top engineering recruiters today." },
-    { title: "Forgot Everything in Months", desc: "Without continuous company-style practice, learned concepts fade rapidly." },
-    { title: "No Real Production Portfolio", desc: "No GitHub commit history, no PR reviews, and no deployed microservices to show." },
-    { title: "No Recruiter-Facing Proof", desc: "Unable to prove team collaboration, sprint delivery, or incident response capability." },
-  ];
+  const bgColors = ['bg-[#1e1136]', 'bg-[#2a174a]', 'bg-[#371f5e]', 'bg-[#452673]'];
+  const textColors = ['text-[#1e1136]', 'text-[#2a174a]', 'text-[#371f5e]', 'text-[#452673]'];
 
   return (
-    <section className="py-20 md:py-28 relative bg-[#070b14] border-t border-b border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-semibold uppercase tracking-wider mb-4">
-            <ShieldAlert className="w-4 h-4" />
-            <span>The Traditional EdTech Trap</span>
+    <section className="py-24 sm:py-32 bg-[#252525] relative overflow-hidden flex flex-col items-center justify-center">
+
+      {/* Background glow indicating a 'problem/warning' area but kept premium */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] h-[500px] bg-purple-600/10 blur-[150px] rounded-[100%] pointer-events-none opacity-50" />
+
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
+
+        {/* Title */}
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start justify-start mb-16 sm:mb-24 w-full">
+          {/* Left: Star + 18px Heading */}
+          <div className="flex items-center gap-3 shrink-0 lg:pt-3">
+            <span className="text-[44px] font-serif text-purple-600 leading-[0] translate-y-[6px] drop-shadow-md">*</span>
+            <span className="text-[18px] tracking-widest uppercase text-gray-300 font-bold">
+              THE REALITY
+            </span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            Why Most Students Still Struggle <br className="hidden sm:block" />
-            After Completing Courses
-          </h2>
+
+          {/* Right: 64px Subheading */}
+          <div className="flex-1 max-w-4xl">
+            <h2 className="text-4xl sm:text-5xl md:text-[64px] text-white leading-[1.1] tracking-tight uppercase font-black">
+              Most Students Struggle After Completing Courses
+            </h2>
+          </div>
         </div>
 
-        {/* 6 Problem Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {problems.map((prob, idx) => (
+        {/* Overlapping Cards Layout */}
+        <div className="flex flex-col lg:flex-row w-full justify-center items-stretch lg:-space-x-8 xl:-space-x-12 mt-16 max-w-7xl mx-auto">
+          {PROBLEM_CARDS.map((card, i) => (
             <div
-              key={idx}
-              className="p-6 rounded-2xl glass-panel border border-white/5 hover:border-rose-500/30 transition-all duration-300 group hover:-translate-y-1"
+              key={i}
+              className="relative flex flex-col flex-1 my-6 lg:my-0 transition-transform duration-500 hover:-translate-y-4"
+              style={{ zIndex: i + 10 }}
             >
-              <div className="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 mb-4 group-hover:scale-110 transition-transform">
-                <XCircle className="w-5 h-5" />
-              </div>
-              <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
-                <span>❌</span> {prob.title}
+              {/* Title Above Card */}
+              <h3 className={`text-base sm:text-lg xl:text-xl relative top-6 text-white/90 uppercase tracking-widest mb-4 pl-4 lg:pl-12 xl:pl-16 z-20 font-bold`}>
+                {card.title}
               </h3>
-              <p className="text-sm text-gray-400 leading-relaxed">{prob.desc}</p>
+
+              <div
+                className="relative flex-1 min-h-[200px] lg:min-h-[280px] w-full"
+                style={{ filter: 'drop-shadow(-15px 0 25px rgba(0,0,0,0.6))' }}
+              >
+                {/* Desktop Number protruding to the left */}
+                <div className={`hidden lg:block absolute left-[-60px] xl:left-[-75px] top-1/2 -translate-y-1/2 text-[250px] xl:text-[300px] font-black ${textColors[i]} leading-[0.75] select-none tracking-tighter z-0`}>
+                  {i + 1}
+                </div>
+
+                {/* Mobile Number */}
+                <div className={`lg:hidden absolute -top-12 left-6 text-[120px] font-black ${textColors[i]} leading-[0.75] select-none z-0`}>
+                  {i + 1}
+                </div>
+
+                {/* Main Card Body */}
+                <div className={`relative ${bgColors[i]} w-full h-full rounded-[2rem] p-6 sm:p-8 xl:p-10 flex flex-col justify-center pl-6 lg:pl-12 xl:pl-16 pr-6 lg:pr-[5.5rem] z-10`}>
+                  
+                  {/* Paragraph */}
+                  <p className="text-sm xl:text-base text-gray-300 text-left mb-4 leading-relaxed">
+                    {card.description}
+                  </p>
+
+                  {/* Underline Divider */}
+                  <div className="w-full border-b border-white/10 mb-5 xl:mb-6"></div>
+
+                  <ul className="space-y-4 xl:space-y-6">
+                    {card.items.map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-3 xl:gap-4">
+                        <div className="flex-shrink-0">
+                          <X className="w-5 h-5 xl:w-6 xl:h-6 text-red-400" strokeWidth={3} />
+                        </div>
+                        <span className="text-base xl:text-lg sm:text-xl font-bold text-gray-200">
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           ))}
         </div>
 
-        {/* Punchline Banner */}
-        <div className="relative rounded-3xl overflow-hidden p-8 sm:p-12 text-center bg-gradient-to-r from-indigo-950 via-[#0e162a] to-purple-950 border border-indigo-500/30 shadow-2xl shadow-indigo-950/60">
-          <div className="absolute inset-0 bg-grid-pattern opacity-30"></div>
-          <div className="relative z-10 max-w-3xl mx-auto space-y-4">
-            <h3 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-              The Industry Doesn&apos;t Hire Certificates.
-            </h3>
-            <p className="text-3xl sm:text-5xl font-extrabold gradient-text-primary">
-              It Hires Evidence.
-            </p>
-            <p className="text-gray-300 text-sm sm:text-base max-w-xl mx-auto pt-2">
-              That&apos;s why Techlearns was engineered from the ground up: to produce verifiable proof of work through daily agile sprints and continuous mentor evaluation.
-            </p>
-          </div>
-        </div>
+        {/* Concluding Statement */}
+        {/* <div className="text-center flex flex-col items-center gap-6 sm:gap-8">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-600 uppercase tracking-widest font-black">
+            The Industry Doesn't Hire <span className="line-through decoration-red-500/50">Certificates.</span>
+          </h3>
+          <h2 className="text-5xl sm:text-[110px] md:text-[130px] lg:text-[9vw] uppercase tracking-tighter leading-[0.9] text-white font-black">
+            It Hires{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-500 to-blue-500 drop-shadow-[0_0_40px_rgba(168,85,247,0.4)]">
+              Evidence.
+            </span>
+          </h2>
+        </div> */}
+
       </div>
     </section>
   );

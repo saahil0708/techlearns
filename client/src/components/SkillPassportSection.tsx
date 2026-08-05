@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import {
   ShieldCheck,
@@ -16,7 +14,7 @@ import {
 
 export default function SkillPassportSection() {
   return (
-    <section id="passport" className="py-20 md:py-28 relative bg-[#090d16] bg-grid-pattern overflow-hidden">
+    <section id="passport" className="py-20 md:py-28 relative bg-[#252525] bg-grid-pattern overflow-hidden">
       {/* Background Orbs */}
       <div className="absolute top-1/2 right-0 w-[500px] h-[500px] ambient-glow-cyan pointer-events-none rounded-full blur-3xl opacity-30"></div>
 
@@ -24,7 +22,7 @@ export default function SkillPassportSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Text Column */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs uppercase tracking-wider font-bold">
               <ShieldCheck className="w-4 h-4" />
               <span>Your Verified Hiring Identity</span>
             </div>
@@ -66,7 +64,7 @@ export default function SkillPassportSection() {
               <div className="flex items-center justify-between pb-6 mb-6 border-b border-white/10">
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-emerald-500 p-0.5 shadow-xl">
-                    <div className="w-full h-full bg-[#090d16] rounded-[14px] flex items-center justify-center text-white font-extrabold text-xl">
+                    <div className="w-full h-full bg-[#252525] rounded-[14px] flex items-center justify-center text-white font-extrabold text-xl">
                       SP
                     </div>
                   </div>
@@ -91,19 +89,19 @@ export default function SkillPassportSection() {
               {/* Stats Grid */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
                 <div className="bg-[#0e1628] p-3 rounded-xl border border-white/5 text-center">
-                  <span className="text-[11px] text-gray-400 font-mono uppercase">Skill Score</span>
+                  <span className="text-[11px] text-gray-400 font-mono uppercase font-bold">Skill Score</span>
                   <div className="text-xl font-extrabold text-emerald-400 font-mono mt-0.5">92%</div>
                 </div>
                 <div className="bg-[#0e1628] p-3 rounded-xl border border-white/5 text-center">
-                  <span className="text-[11px] text-gray-400 font-mono uppercase">Projects</span>
+                  <span className="text-[11px] text-gray-400 font-mono uppercase font-bold">Projects</span>
                   <div className="text-xl font-extrabold text-white font-mono mt-0.5">8</div>
                 </div>
                 <div className="bg-[#0e1628] p-3 rounded-xl border border-white/5 text-center">
-                  <span className="text-[11px] text-gray-400 font-mono uppercase">Hackathons</span>
+                  <span className="text-[11px] text-gray-400 font-mono uppercase font-bold">Hackathons</span>
                   <div className="text-xl font-extrabold text-amber-400 font-mono mt-0.5">6</div>
                 </div>
                 <div className="bg-[#0e1628] p-3 rounded-xl border border-white/5 text-center">
-                  <span className="text-[11px] text-gray-400 font-mono uppercase">Mentor Reviews</span>
+                  <span className="text-[11px] text-gray-400 font-mono uppercase font-bold">Mentor Reviews</span>
                   <div className="text-xl font-extrabold text-purple-400 font-mono mt-0.5">14</div>
                 </div>
               </div>
