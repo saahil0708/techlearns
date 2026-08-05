@@ -82,6 +82,7 @@ body {
   0% {
     transform: translateX(0%);
   }
+
   100% {
     transform: translateX(-100%);
   }
@@ -95,4 +96,21 @@ body {
 
 .font-anton {
   font-family: 'Anton', sans-serif;
+}
+
+.font-bebas {
+  font-family: var(--font-bebas), "Bebas Neue", sans-serif !important;
+}
+
+/* Hide default browser scrollbar but keep scrolling functionality */
+::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}
+
+* {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
