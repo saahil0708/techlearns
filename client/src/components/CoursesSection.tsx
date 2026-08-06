@@ -1,5 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 import CourseCard3D from './CourseCard3D';
+import { FadeIn } from './animations/FadeIn';
 
 const COURSES = [
   {
@@ -41,13 +43,13 @@ export default function CoursesSection() {
       <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         
         {/* Header Section (With Button on Right) */}
-        <div className="flex flex-col lg:flex-row gap-8 items-start justify-between mb-16 sm:mb-24 w-full">
+        <FadeIn delay={0.1} direction="up" className="flex flex-col lg:flex-row gap-8 items-start justify-between mb-16 sm:mb-24 w-full">
           
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start justify-start">
             {/* Left: Star + 18px Heading */}
             <div className="flex items-center gap-3 shrink-0 lg:pt-3">
               <span className="text-[44px] font-serif text-purple-500 leading-[0] translate-y-[6px] drop-shadow-md">*</span>
-              <span className="text-[18px] sm:text-[20px] tracking-widest uppercase text-gray-400 font-bold">
+              <span className="text-[18px] sm:text-[30px] tracking-[3px] font-bebas uppercase text-gray-400 font-bold">
                 OUR PROGRAMS
               </span>
             </div>
@@ -63,20 +65,22 @@ export default function CoursesSection() {
 
           {/* Right: View All Button */}
           <div className="shrink-0 lg:pt-4 translate-y-15">
-            <a 
+            <Link 
               href="#courses" 
-              className="group inline-flex items-center gap-3 px-5 py-4 text-purple-600 rounded border-2 border-purple-600 uppercase tracking-wide text-sm hover:bg-purple-600 hover:text-white transition-colors duration-300 shadow-md font-bold"
+              className="group inline-flex items-center gap-3 px-4 font-bebas py-3 text-purple-600 rounded border-2 border-purple-600 uppercase tracking-[5px] text-lg hover:bg-purple-600 hover:text-white transition-colors duration-300 shadow-md font-medium"
             >
               VIEW ALL COURSES
-            </a>
+            </Link>
           </div>
           
-        </div>
+        </FadeIn>
 
         {/* Courses Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 [perspective:1500px]">
           {COURSES.map((course, idx) => (
-            <CourseCard3D key={course.id} course={course} index={idx} />
+            <FadeIn key={course.id} delay={0.2 + (idx * 0.15)} direction="up" className="h-full">
+              <CourseCard3D course={course} index={idx} />
+            </FadeIn>
           ))}
         </div>
 

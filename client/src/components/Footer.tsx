@@ -1,20 +1,17 @@
 "use client";
 
-import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import LanguageIcon from '@mui/icons-material/Language';
+import { X } from '@mui/icons-material';
+import { YouTube } from '@mui/icons-material';
 
 export default function Footer() {
   return (
-    // No bg color specified, so it inherits the global hazy coal background from layout/page
-    <footer className="relative w-full pt-24 border-t border-purple-500/20 font-sans overflow-hidden bg-transparent">
+    <footer className="relative w-full max-w-[100vw] pt-24 border-t border-purple-500/20 font-sans overflow-hidden bg-transparent">
 
       {/* Deep purple hazy glow matching the coal texture behavior */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[600px] bg-purple-600/10 blur-[120px] pointer-events-none rounded-full" />
@@ -39,7 +36,7 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h4 className="text-white uppercase tracking-wider text-sm mb-1 font-bold">Contact Us</h4>
+            <h4 className="text-white uppercase tracking-wider text-sm mb-1 font-bold">Find Us</h4>
             <p className="text-sm leading-relaxed text-gray-400">
               123 Innovation Boulevard,<br />
               Bengaluru, KA 560001
@@ -47,7 +44,7 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h4 className="text-white uppercase tracking-wider text-sm mb-1 font-bold">Contact Us</h4>
+            <h4 className="text-white uppercase tracking-wider text-sm mb-1 font-bold">Call Us</h4>
             <p className="text-sm leading-relaxed text-gray-400">
               +91 (800) 123-4567
             </p>
@@ -56,7 +53,7 @@ export default function Footer() {
 
         {/* Column 2: Pages */}
         <div className="lg:col-span-2 flex flex-col gap-4 pt-2">
-          <h4 className="text-purple-400 uppercase tracking-wider text-xl mb-3 font-bold">Pages</h4>
+          <h4 className="text-purple-400 uppercase tracking-[5px] text-2xl mb-3 font-bold font-bebas">Pages</h4>
           <Link href="#" className="hover:text-white transition-colors text-sm text-gray-400">Home</Link>
           <Link href="#" className="hover:text-white transition-colors text-sm text-gray-400">About Us</Link>
           <Link href="#" className="hover:text-white transition-colors text-sm text-gray-400">Our Services</Link>
@@ -67,26 +64,26 @@ export default function Footer() {
 
         {/* Column 3: Connect With Us */}
         <div className="lg:col-span-3 flex flex-col gap-4 pt-2">
-          <h4 className="text-purple-400 uppercase tracking-wider text-xl mb-3 font-bold">Connect With Us</h4>
+          <h4 className="text-purple-400 uppercase tracking-[5px] font-bebas text-2xl mb-3 font-bold">Connect With Us</h4>
 
-          <a href="#" className="flex items-center gap-3 hover:text-white transition-colors text-sm text-gray-400 group">
+          <Link href="#" className="flex items-center gap-3 hover:text-white transition-colors text-sm text-gray-400 group">
             <PinterestIcon className="text-purple-500 group-hover:text-white transition-colors" sx={{ fontSize: 18 }} /> Pinterest
-          </a>
-          <a href="#" className="flex items-center gap-3 hover:text-white transition-colors text-sm text-gray-400 group">
+          </Link>
+          <Link href="#" className="flex items-center gap-3 hover:text-white transition-colors text-sm text-gray-400 group">
             <GitHubIcon className="text-purple-500 group-hover:text-white transition-colors" sx={{ fontSize: 18 }} /> Github
-          </a>
-          <a href="#" className="flex items-center gap-3 hover:text-white transition-colors text-sm text-gray-400 group">
+          </Link>
+          <Link href="#" className="flex items-center gap-3 hover:text-white transition-colors text-sm text-gray-400 group">
             <LinkedInIcon className="text-purple-500 group-hover:text-white transition-colors" sx={{ fontSize: 18 }} /> LinkedIn
-          </a>
-          <a href="#" className="flex items-center gap-3 hover:text-white transition-colors text-sm text-gray-400 group">
-            <LanguageIcon className="text-purple-500 group-hover:text-white transition-colors" sx={{ fontSize: 18 }} /> Behance
-          </a>
-          <a href="#" className="flex items-center gap-3 hover:text-white transition-colors text-sm text-gray-400 group">
-            <LanguageIcon className="text-purple-500 group-hover:text-white transition-colors" sx={{ fontSize: 18 }} /> Dribbble
-          </a>
-          <a href="#" className="flex items-center gap-3 hover:text-white transition-colors text-sm text-gray-400 group">
-            <TwitterIcon className="text-purple-500 group-hover:text-white transition-colors" sx={{ fontSize: 18 }} /> X Twitter
-          </a>
+          </Link>
+          <Link href="#" className="flex items-center gap-3 hover:text-white transition-colors text-sm text-gray-400 group">
+            <YouTube className="text-purple-500 group-hover:text-white transition-colors" sx={{ fontSize: 18 }} /> YouTube
+          </Link>
+          <Link href="#" className="flex items-center gap-3 hover:text-white transition-colors text-sm text-gray-400 group">
+            <InstagramIcon className="text-purple-500 group-hover:text-white transition-colors" sx={{ fontSize: 18 }} /> Instagram
+          </Link>
+          <Link href="#" className="flex items-center gap-3 hover:text-white transition-colors text-sm text-gray-400 group">
+            <X className="text-purple-500 group-hover:text-white transition-colors" sx={{ fontSize: 18 }} /> X Twitter
+          </Link>
         </div>
 
         {/* Column 4: Phone, Email, Text */}

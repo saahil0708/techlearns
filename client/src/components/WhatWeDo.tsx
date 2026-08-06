@@ -1,4 +1,6 @@
 import { ArrowUpRight } from 'lucide-react';
+import { FluidArrowRight } from '@/utils/fluid_arrow';
+import { FadeIn } from './animations/FadeIn';
 
 const WHAT_WE_DO_CARDS = [
   {
@@ -30,12 +32,12 @@ export default function WhatWeDo() {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
 
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-end gap-8 lg:gap-12 mb-16 sm:mb-24 w-full">
+        <FadeIn delay={0.1} direction="up" className="flex flex-col lg:flex-row items-start lg:items-center justify-end gap-8 lg:gap-12 mb-16 sm:mb-24 w-full">
           
           {/* Left: Subheading (Big Text) */}
           <div className="text-left">
             <h2
-              className="text-4xl sm:text-5xl md:text-[64px] leading-[1.1] tracking-tight uppercase font-black"
+              className="text-4xl sm:text-5xl md:text-[64px] leading-[1.1]  uppercase font-black"
               style={{ color: '#FFFAFA' }}
             >
               WE SIMULATE THE <br className="hidden lg:block" />
@@ -45,19 +47,21 @@ export default function WhatWeDo() {
 
           {/* Right: Heading + Star */}
           <div className="flex items-center justify-end gap-3 shrink-0 -translate-y-10">
-            <span className="text-[18px] sm:text-[20px] tracking-widest uppercase text-gray-300 font-bold">
+            <span className="text-[18px] sm:text-[33px] font-bebas tracking-widest uppercase text-gray-300 font-bold">
               WHY CHOOSE TECHLEARNS
             </span>
             <span className="text-[44px] font-serif text-purple-500 leading-[0] translate-y-[6px] drop-shadow-sm">*</span>
           </div>
           
-        </div>
+        </FadeIn>
 
         {/* 3 Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {WHAT_WE_DO_CARDS.map((card, i) => (
-            <div
+            <FadeIn
               key={i}
+              delay={0.2 + (i * 0.15)}
+              direction="up"
               className={`flex flex-col ${card.isAccent ? 'bg-purple-700 shadow-2xl scale-100 lg:scale-[1.02]' : 'bg-[#1e1e1e] border border-white/5'} p-6 sm:p-8 xl:p-10 transition-all duration-300 group rounded-2xl`}
             >
               {card.imagePosition === 'top' && (
@@ -72,11 +76,11 @@ export default function WhatWeDo() {
               )}
 
               <div className="flex justify-between items-start gap-4 mb-6">
-                <h3 className="text-3xl xl:text-4xl text-white uppercase tracking-tighter leading-[0.9] whitespace-pre-line font-black">
+                <h3 className="text-3xl xl:text-5xl font-bebas text-white uppercase tracking-[2px] leading-[0.9] whitespace-pre-line font-black">
                   {card.title}
                 </h3>
                 <button className="w-12 h-12 xl:w-14 xl:h-14 shrink-0 rounded-full bg-[#caff00] text-black flex items-center justify-center transition-transform duration-300 shadow-lg">
-                  <ArrowUpRight className="w-6 h-6 xl:w-7 xl:h-7 group-hover:rotate-45 transition-transform duration-300" strokeWidth={2} />
+                  <FluidArrowRight className="w-6 h-6 xl:w-7 xl:h-7 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
                 </button>
               </div>
 
@@ -94,7 +98,7 @@ export default function WhatWeDo() {
                   />
                 </div>
               )}
-            </div>
+            </FadeIn>
           ))}
         </div>
 
