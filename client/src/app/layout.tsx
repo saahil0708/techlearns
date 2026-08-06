@@ -24,6 +24,7 @@ export const metadata: Metadata = {
 };
 
 import SmoothScrolling from "@/components/SmoothScrolling";
+import ScrollProgressCircle from "@/components/ScrollProgressCircle";
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <SmoothScrolling>
           {children}
+          <ScrollProgressCircle />
         </SmoothScrolling>
       </body>
     </html>

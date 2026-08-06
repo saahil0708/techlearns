@@ -34,7 +34,7 @@ export default function CorporateTimeline() {
   const circleRotation = useTransform(scrollYProgress, [0, 1], [0, -totalAngle]);
 
   return (
-    <section ref={containerRef} className="h-[500vh] bg-[#FFFAFA] relative border-t border-black/5">
+    <section ref={containerRef} className="h-[600vh] bg-[#FFFAFA] relative border-t border-black/5">
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center bg-[#FFFAFA]">
 
         {/* Header Section */}
@@ -134,28 +134,28 @@ export default function CorporateTimeline() {
                 {TIMELINE_PHASES.map((phase, i) => {
                   const itemProgress = i / (TIMELINE_PHASES.length - 1);
                   
-                  let textOpInput = [itemProgress - 0.08, itemProgress - 0.02, itemProgress + 0.02, itemProgress + 0.08];
+                  let textOpInput = [itemProgress - 0.04, itemProgress - 0.01, itemProgress + 0.01, itemProgress + 0.04];
                   let textOpOutput = [0, 1, 1, 0];
                   
                   if (i === 0) {
-                    textOpInput = [0, 0.02, 0.08, 1];
+                    textOpInput = [0, 0.01, 0.04, 1];
                     textOpOutput = [1, 1, 0, 0];
                   } else if (i === TIMELINE_PHASES.length - 1) {
-                    textOpInput = [0, itemProgress - 0.08, itemProgress - 0.02, 1];
+                    textOpInput = [0, itemProgress - 0.04, itemProgress - 0.01, 1];
                     textOpOutput = [0, 0, 1, 1];
                   }
 
                   // eslint-disable-next-line react-hooks/rules-of-hooks
                   const opacity = useTransform(scrollYProgress, textOpInput, textOpOutput);
                   
-                  let yInput = [itemProgress - 0.08, itemProgress, itemProgress + 0.08];
+                  let yInput = [itemProgress - 0.04, itemProgress, itemProgress + 0.04];
                   let yOutput = [40, 0, -40];
                   
                   if (i === 0) {
-                    yInput = [0, 0.08, 1];
+                    yInput = [0, 0.04, 1];
                     yOutput = [0, -40, -40];
                   } else if (i === TIMELINE_PHASES.length - 1) {
-                    yInput = [0, itemProgress - 0.08, 1];
+                    yInput = [0, itemProgress - 0.04, 1];
                     yOutput = [40, 40, 0];
                   }
 

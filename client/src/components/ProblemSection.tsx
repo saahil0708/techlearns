@@ -1,4 +1,5 @@
 import { X } from 'lucide-react';
+import { FadeIn } from './animations/FadeIn';
 
 const PROBLEM_CARDS = [
   {
@@ -36,33 +37,35 @@ export default function ProblemSection() {
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
 
         {/* Title */}
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start justify-start mb-16 sm:mb-24 w-full">
+        <FadeIn delay={0.1} direction="up" className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start justify-start mb-16 w-full">
           {/* Left: Star + 18px Heading */}
-          <div className="flex items-center gap-3 shrink-0 lg:pt-3">
+          <div className="flex items-center gap-3 shrink-0 lg:pt-1">
             <span className="text-[44px] font-serif text-purple-600 leading-[0] translate-y-[6px] drop-shadow-md">*</span>
-            <span className="text-[18px] tracking-widest uppercase text-gray-300 font-bold">
+            <span className="text-[36px] tracking-widest font-bebas uppercase text-gray-300 font-bold">
               THE REALITY
             </span>
           </div>
 
           {/* Right: 64px Subheading */}
           <div className="flex-1 max-w-4xl">
-            <h2 className="text-4xl sm:text-5xl md:text-[64px] text-white leading-[1.1] tracking-tight uppercase font-black">
+            <h2 className="text-4xl sm:text-5xl md:text-[56px] text-white leading-[1.1] uppercase font-bold">
               Most Students Struggle After Completing Courses
             </h2>
           </div>
-        </div>
+        </FadeIn>
 
         {/* Overlapping Cards Layout */}
         <div className="flex flex-col lg:flex-row w-full justify-center items-stretch lg:-space-x-8 xl:-space-x-12 mt-16 max-w-7xl mx-auto">
           {PROBLEM_CARDS.map((card, i) => (
-            <div
+            <FadeIn
               key={i}
+              delay={0.2 + (i * 0.15)}
+              direction="up"
               className="relative flex flex-col flex-1 my-6 lg:my-0 transition-transform duration-500 hover:-translate-y-4"
               style={{ zIndex: i + 10 }}
             >
               {/* Title Above Card */}
-              <h3 className={`text-base sm:text-lg xl:text-xl relative top-6 text-white/90 uppercase tracking-widest mb-4 pl-4 lg:pl-12 xl:pl-16 z-20 font-bold`}>
+              <h3 className={`text-base sm:text-lg xl:text-3xl relative top-6 font-bebas text-white/90 uppercase tracking-widest mb-4 pl-4 lg:pl-12 xl:pl-16 z-20 font-bold`}>
                 {card.title}
               </h3>
 
@@ -105,7 +108,7 @@ export default function ProblemSection() {
                   </ul>
                 </div>
               </div>
-            </div>
+            </FadeIn>
           ))}
         </div>
 
