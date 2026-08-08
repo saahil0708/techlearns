@@ -67,8 +67,8 @@ export default function CorporateTimeline() {
 
         {/* Giant Circle Container */}
         <motion.div
-          className="absolute top-1/2 left-0 w-[140vh] h-[140vh] rounded-full border border-black/5 -translate-x-[65%] -translate-y-1/2 flex items-center justify-center pointer-events-none"
-          style={{ rotate: circleRotation }}
+          className="absolute top-1/2 left-0 w-[140vh] h-[140vh] rounded-full border border-black/5 flex items-center justify-center pointer-events-none"
+          style={{ x: "-65%", y: "-50%", rotate: circleRotation }}
         >
           {TIMELINE_PHASES.map((phase, i) => {
             const rotation = i * anglePerItem;
