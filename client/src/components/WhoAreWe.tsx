@@ -126,7 +126,7 @@ export default function WhoAreWe() {
                       {pillar.description}
                     </p>
                     
-                    <button className={`inline-flex items-center gap-4 tracking-widest uppercase text-sm sm:text-base group/btn transition-colors duration-300 ${pillar.color font-bold}`}>
+                    <button className={`inline-flex items-center gap-4 tracking-widest uppercase text-sm sm:text-base group/btn transition-colors duration-300 ${pillar.color} font-bold`}>
                       Discover More
                       <div className={`p-3 sm:p-4 rounded-full bg-white shadow-sm border border-black/5 group-hover/btn:shadow-md transition-all`}>
                         <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
