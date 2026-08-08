@@ -47,8 +47,8 @@ export default function CoursesSection() {
           
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start justify-start">
             {/* Left: Star + 18px Heading */}
-            <div className="flex items-center gap-3 shrink-0 lg:pt-3">
-              <span className="text-[44px] font-serif text-purple-500 leading-[0] translate-y-[6px] drop-shadow-md">*</span>
+            <div className="flex items-center gap-2 sm:gap-3 shrink-0 lg:pt-3">
+              <span className="text-[34px] sm:text-[44px] font-serif text-purple-500 leading-[0] translate-y-[2px] sm:translate-y-[6px] drop-shadow-md">*</span>
               <span className="text-[18px] sm:text-[30px] tracking-[3px] font-bebas uppercase text-gray-400 font-bold">
                 OUR PROGRAMS
               </span>
@@ -64,7 +64,7 @@ export default function CoursesSection() {
           </div>
 
           {/* Right: View All Button */}
-          <div className="shrink-0 lg:pt-4 translate-y-15">
+          <div className="shrink-0 lg:pt-4 lg:translate-y-15">
             <Link 
               href="#courses" 
               className="group inline-flex items-center gap-3 px-4 font-bebas py-3 text-purple-600 rounded border-2 border-purple-600 uppercase tracking-[5px] text-lg hover:bg-purple-600 hover:text-white transition-colors duration-300 shadow-md font-medium"
