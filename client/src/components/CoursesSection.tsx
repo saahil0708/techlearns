@@ -64,7 +64,7 @@ export default function CoursesSection() {
           </div>
 
           {/* Right: View All Button */}
-          <div className="shrink-0 lg:pt-4 lg:translate-y-15">
+          <div className="shrink-0 lg:pt-4 lg:translate-y-16">
             <Link 
               href="#courses" 
               className="group inline-flex items-center gap-3 px-4 font-bebas py-3 text-purple-600 rounded border-2 border-purple-600 uppercase tracking-[5px] text-lg hover:bg-purple-600 hover:text-white transition-colors duration-300 shadow-md font-medium"

@@ -57,7 +57,7 @@ export default function Hero() {
           alt="Hero Student"
           width={1000}
           height={1200}
-          className="w-auto h-auto max-h-[75vh] max-w-[90vw] sm:max-w-[550px] lg:max-w-[650px] scale-280 object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20"
+          className="w-auto h-auto max-h-[75vh] max-w-[90vw] sm:max-w-[550px] lg:max-w-[650px] scale-[2.8] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20"
           priority
         />
       </motion.div>
@@ -90,32 +90,36 @@ export default function Hero() {
       <div className="absolute inset-0 z-40 w-full h-full pointer-events-none">
         
         {/* Left Side: Impact Stats */}
-        <FadeIn delay={0.2} direction="right" className="hidden lg:flex flex-col gap-10 pointer-events-auto absolute left-4 xl:left-8 2xl:left-16 top-[55%] -translate-y-1/2">
-          <div className="flex flex-col group">
-            <span className="text-5xl font-bebas tracking-wider text-white drop-shadow-[0_0_15px_rgba(168,85,247,0.5)] group-hover:translate-x-2 transition-transform duration-300 origin-left">50K+</span>
-            <span className="text-[10px] font-black text-purple-400 uppercase tracking-[0.2em] mt-1">Active Students</span>
-          </div>
-          <div className="w-8 h-[1px] bg-purple-500/30" />
-          <div className="flex flex-col group">
-            <span className="text-5xl font-bebas tracking-wider text-white drop-shadow-[0_0_15px_rgba(168,85,247,0.5)] group-hover:translate-x-2 transition-transform duration-300 origin-left">98%</span>
-            <span className="text-[10px] font-black text-purple-400 uppercase tracking-[0.2em] mt-1">Placement Rate</span>
-          </div>
-          <div className="w-8 h-[1px] bg-purple-500/30" />
-          <div className="flex flex-col group">
-            <span className="text-5xl font-bebas tracking-wider text-white drop-shadow-[0_0_15px_rgba(168,85,247,0.5)] group-hover:translate-x-2 transition-transform duration-300 origin-left">200+</span>
-            <span className="text-[10px] font-black text-purple-400 uppercase tracking-[0.2em] mt-1">Corporate Partners</span>
-          </div>
-        </FadeIn>
+        <div className="hidden lg:block absolute left-4 xl:left-8 2xl:left-16 top-[55%] -translate-y-1/2 pointer-events-auto z-40">
+          <FadeIn delay={0.2} direction="right" className="flex flex-col gap-10">
+            <div className="flex flex-col group">
+              <span className="text-5xl font-bebas tracking-wider text-white drop-shadow-[0_0_15px_rgba(168,85,247,0.5)] group-hover:translate-x-2 transition-transform duration-300 origin-left">50K+</span>
+              <span className="text-[10px] font-black text-purple-400 uppercase tracking-[0.2em] mt-1">Active Students</span>
+            </div>
+            <div className="w-8 h-[1px] bg-purple-500/30" />
+            <div className="flex flex-col group">
+              <span className="text-5xl font-bebas tracking-wider text-white drop-shadow-[0_0_15px_rgba(168,85,247,0.5)] group-hover:translate-x-2 transition-transform duration-300 origin-left">98%</span>
+              <span className="text-[10px] font-black text-purple-400 uppercase tracking-[0.2em] mt-1">Placement Rate</span>
+            </div>
+            <div className="w-8 h-[1px] bg-purple-500/30" />
+            <div className="flex flex-col group">
+              <span className="text-5xl font-bebas tracking-wider text-white drop-shadow-[0_0_15px_rgba(168,85,247,0.5)] group-hover:translate-x-2 transition-transform duration-300 origin-left">200+</span>
+              <span className="text-[10px] font-black text-purple-400 uppercase tracking-[0.2em] mt-1">Corporate Partners</span>
+            </div>
+          </FadeIn>
+        </div>
 
         {/* Right Side: Rectangular CTA Button (Beside the foot of the E) */}
-        <FadeIn delay={0.4} direction="left" className="hidden lg:flex pointer-events-auto absolute right-4 xl:right-16 2xl:right-10 bottom-[18%]">
-          <button className="group relative flex items-center justify-center px-5 py-3 bg-none text-lg text-white font-medium tracking-[6px] uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(147,51,234,0.6)] rounded-sm overflow-hidden border border-purple-400/50">
-            <span className="relative z-10 flex font-bebas items-center gap-3">
-              Get Started
-              {/* <FluidArrowRight className="w-5 h-5" /> */}
-            </span>
-          </button>
-        </FadeIn>
+        <div className="hidden lg:block absolute right-4 xl:right-16 2xl:right-10 bottom-[18%] pointer-events-auto z-40">
+          <FadeIn delay={0.4} direction="left" className="flex">
+            <button className="group relative flex items-center justify-center px-5 py-3 bg-none text-lg text-white font-medium tracking-[6px] uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(147,51,234,0.6)] rounded-sm overflow-hidden border border-purple-400/50">
+              <span className="relative z-10 flex font-bebas items-center gap-3">
+                Get Started
+                {/* <FluidArrowRight className="w-5 h-5" /> */}
+              </span>
+            </button>
+          </FadeIn>
+        </div>
 
       </div>
 
