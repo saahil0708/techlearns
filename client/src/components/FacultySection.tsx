@@ -63,8 +63,8 @@ export default function FacultySection() {
             <div className="flex flex-wrap gap-12 sm:gap-16">
               {/* Stat 1 */}
               <div className="flex flex-col relative z-10">
-                <div className="relative inline-block">
-                  <Star4Point className="absolute -left-6 -top-5 w-14 h-14 text-[#CCFF00] -z-10 opacity-90" />
+                <div className="relative inline-flex items-center">
+                  <Star4Point className="absolute -left-4 -top-3 sm:-left-6 sm:-top-5 w-10 h-10 sm:w-14 sm:h-14 text-[#CCFF00] -z-10 opacity-90" />
                   <h3 className="text-5xl sm:text-6xl font-black text-white flex items-center tracking-tighter">
                     300 <span className="text-blue-500 text-4xl sm:text-5xl ml-2 font-black leading-none">+</span>
                   </h3>
@@ -74,8 +74,8 @@ export default function FacultySection() {
 
               {/* Stat 2 */}
               <div className="flex flex-col relative z-10">
-                <div className="relative inline-block">
-                  <Star4Point className="absolute -left-6 -top-5 w-14 h-14 text-[#CCFF00] -z-10 opacity-90" />
+                <div className="relative inline-flex items-center">
+                  <Star4Point className="absolute -left-4 -top-3 sm:-left-6 sm:-top-5 w-10 h-10 sm:w-14 sm:h-14 text-[#CCFF00] -z-10 opacity-90" />
                   <h3 className="text-5xl sm:text-6xl font-black text-white flex items-center tracking-tighter">
                     200 <span className="text-blue-500 text-4xl sm:text-5xl ml-2 font-black leading-none">+</span>
                   </h3>

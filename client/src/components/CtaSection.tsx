@@ -46,7 +46,7 @@ export default function CtaSection() {
         </svg>
 
         {/* Outer container applies the layout */}
-        <div className="w-[95%] lg:w-[90%] max-w-[1100px] mx-auto h-[250px] sm:h-[300px] lg:h-[400px] relative">
+        <div className="w-[95%] lg:w-[90%] max-w-[1100px] mx-auto h-[400px] sm:h-[350px] lg:h-[400px] relative">
 
           {/* Black Triangle Shape Background (Gooey) */}
           <div
@@ -54,8 +54,7 @@ export default function CtaSection() {
             style={{ filter: 'url(#round-corners-small)' }}
           >
             <div
-              className="absolute inset-0 bg-[#0a0a0a]"
-              style={{ clipPath: 'polygon(0 0, 7.5% 0, 0 20%)' }}
+              className="absolute inset-0 bg-[#0a0a0a] max-md:[clip-path:polygon(0_0,6%_0,0_10%)] md:[clip-path:polygon(0_0,7.5%_0,0_20%)]"
             />
           </div>
 
@@ -66,8 +65,7 @@ export default function CtaSection() {
           >
             {/* Inner container provides the sharp polygon which gets rounded by the filter */}
             <div 
-              className="absolute inset-0 bg-[#2D0B5A] pointer-events-auto shadow-2xl transition-colors duration-500 overflow-hidden"
-              style={{ clipPath: 'polygon(12% 0, 100% 0, 100% 78%, 78% 78%, 73% 100%, 0 100%, 0 32%)' }}
+              className="absolute inset-0 bg-[#2D0B5A] pointer-events-auto shadow-2xl transition-colors duration-500 overflow-hidden max-md:[clip-path:polygon(8%_0,100%_0,100%_86%,58%_86%,53%_100%,0_100%,0_12%)] md:[clip-path:polygon(12%_0,100%_0,100%_78%,78%_78%,73%_100%,0_100%,0_32%)]"
             >
               {/* Noise overlay inside the shape for coal texture */}
               <div 
@@ -109,14 +107,13 @@ export default function CtaSection() {
             style={{ filter: 'url(#round-corners-small)' }}
           >
             <button
-              className="absolute inset-0 bg-[#0a0a0a] hover:bg-[#1a1a1a] transition-colors duration-300 pointer-events-auto cursor-pointer"
-              style={{ clipPath: 'polygon(78.6% 82.5%, 100% 82.5%, 100% 100%, 74.6% 100%)' }}
+              className="absolute inset-0 bg-[#0a0a0a] hover:bg-[#1a1a1a] transition-colors duration-300 pointer-events-auto cursor-pointer max-md:[clip-path:polygon(59%_88.5%,100%_88.5%,100%_100%,54%_100%)] md:[clip-path:polygon(78.6%_82.5%,100%_82.5%,100%_100%,74.6%_100%)]"
               aria-label="Explore Button"
             />
           </div>
 
           {/* Fitted Button Content (Text & Icon) */}
-          <div className="absolute bottom-[5%] right-[5.5%] md:bottom-[6%] z-40 flex items-center gap-1 md:gap-2 pointer-events-none">
+          <div className="absolute bottom-[2%] right-[5%] md:bottom-[6%] z-40 flex items-center gap-1 md:gap-2 pointer-events-none">
             <span className="text-white text-[9px] md:text-sm font-black font-bebas scale-160 tracking-[2.5px] uppercase">
               Request CallBack
             </span>

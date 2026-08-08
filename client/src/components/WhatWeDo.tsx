@@ -46,11 +46,11 @@ export default function WhatWeDo() {
           </div>
 
           {/* Right: Heading + Star */}
-          <div className="flex items-center justify-end gap-3 shrink-0 -translate-y-10">
+          <div className="flex items-center justify-start lg:justify-end gap-2 lg:gap-3 shrink-0 lg:-translate-y-10 mt-2 lg:mt-0 w-full lg:w-auto">
             <span className="text-[18px] sm:text-[33px] font-bebas tracking-widest uppercase text-gray-300 font-bold">
               WHY CHOOSE TECHLEARNS
             </span>
-            <span className="text-[44px] font-serif text-purple-500 leading-[0] translate-y-[6px] drop-shadow-sm">*</span>
+            <span className="text-[34px] sm:text-[44px] font-serif text-purple-500 leading-[0] translate-y-[2px] sm:translate-y-[6px] drop-shadow-sm">*</span>
           </div>
           
         </FadeIn>
