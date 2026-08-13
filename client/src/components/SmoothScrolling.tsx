@@ -1,4 +1,4 @@
-"use client";
+
 
 import { ReactLenis } from 'lenis/react';
 import React from 'react';
