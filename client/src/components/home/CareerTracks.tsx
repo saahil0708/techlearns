@@ -1,6 +1,6 @@
-import React from 'react';
+
 import { FadeIn } from '../animations/FadeIn';
-import { Clock, ArrowRight, Brain, Cpu, Globe, Database, Shield, Cloud, ScatterChart, BarChart } from 'lucide-react';
+import { Clock, Brain, Cpu, Globe, ScatterChart } from 'lucide-react';
 import { FluidArrowRight } from '@/utils/fluid_arrow';
 
 const tracks = [

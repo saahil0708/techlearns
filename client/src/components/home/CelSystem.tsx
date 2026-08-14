@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { FadeIn } from '@/components/animations/FadeIn';
 import { FluidArrowRight } from '@/utils/fluid_arrow';
 

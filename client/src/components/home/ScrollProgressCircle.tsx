@@ -1,6 +1,6 @@
 
 
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useSpring, useTransform, useMotionValueEvent } from 'framer-motion';
 
 export default function ScrollProgressCircle() {

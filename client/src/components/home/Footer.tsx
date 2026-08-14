@@ -1,11 +1,11 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
-import { FadeIn } from '../animations/FadeIn';
-import { MessageSquare, ArrowRight, Mail, MapPin, Phone } from 'lucide-react';
+
+import { MessageSquare, Mail } from 'lucide-react';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { FluidArrowRight } from '@/utils/fluid_arrow';
+
 
 const footerLinks = [
   {

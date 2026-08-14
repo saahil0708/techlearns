@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { FadeIn } from '../animations/FadeIn';
 import { Mail, Users, Ticket, FileSignature, Rocket } from 'lucide-react';
 

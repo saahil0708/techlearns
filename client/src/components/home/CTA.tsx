@@ -1,6 +1,6 @@
 
 import { FadeIn } from "../animations/FadeIn";
-import { LuArrowRight } from "react-icons/lu";
+
 import { FluidArrowRight } from "@/utils/fluid_arrow";
 
 export default function CTA() {

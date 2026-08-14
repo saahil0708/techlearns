@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import { Suspense, lazy } from 'react';
 
 // Lazy loading all components for maximum optimization
 const Navbar = lazy(() => import('@/components/home/Navbar'));

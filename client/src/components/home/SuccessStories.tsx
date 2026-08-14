@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { FadeIn } from "../animations/FadeIn";
 import { LuLinkedin, LuGithub, LuCode, LuBriefcase, LuBuilding2, LuTrendingUp } from 'react-icons/lu';
 
