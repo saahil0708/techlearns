@@ -42,7 +42,7 @@ export default function PreparationSection() {
               At TechLearns Academy
             </p>
             <h2 className="text-4xl sm:text-5xl md:text-[60px] lg:text-[72px] leading-[1.05] font-flexa font-medium text-[#0B1F3A] tracking-tight">
-              We prepare <span className="font-bebas text-[#7237BC] tracking-[0.05em] uppercase font-black">Finance Leaders</span><br className="hidden md:block" />
+              We prepare <span className="font-bebas text-[#7237BC] tracking-[0.05em] uppercase font-black">Leaders</span><br className="hidden md:block" />
               to achieve the <span className="font-bebas text-[#5B2D91] tracking-[0.05em] uppercase font-black">Next Elevation</span>
             </h2>
             <p className="mt-8 text-xl sm:text-2xl text-[#604B7E] font-medium max-w-3xl font-flexa leading-relaxed">
