@@ -8,9 +8,34 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  
+  const [isHidden, setIsHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Hide on scroll down (if scrolled past 100px), show on scroll up
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsHidden(true);
+      } else if (currentScrollY < lastScrollY) {
+        setIsHidden(false);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex flex-col font-flexa bg-[#050505] border-b border-white/10 shadow-md">
+    <header 
+      className={`fixed top-0 left-0 right-0 z-[200] flex flex-col font-flexa bg-[#050505] border-b border-white/10 shadow-md transition-transform duration-300 ease-in-out ${
+        isHidden ? "-translate-y-full" : "translate-y-0"
+      }`}
+    >
       <div className="mx-auto w-full max-w-[1400px]">
         <div className="relative flex items-center justify-between px-4 lg:px-8 h-[90px]">
           {/* Logo Section */}
@@ -34,11 +59,8 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <nav className="hidden xl:flex items-center gap-8 text-[14px] lg:text-[15px] font-semibold text-white/90 h-full">
-            <Link to="#" className="relative hover:text-[#8C52FF] transition-colors group py-2">
-              Home
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#8C52FF] transition-all duration-300 group-hover:w-full rounded-full"></span>
-            </Link>
-
+            
+            {/* Programs Dropdown */}
             <div
               className="relative flex items-center gap-1.5 hover:text-[#8C52FF] transition-colors h-full cursor-pointer group"
               onMouseEnter={() => setActiveDropdown('programs')}
@@ -57,7 +79,7 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="absolute top-[80%] left-0 mt-2 w-72 bg-[#111] border border-white/10 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-hidden origin-top-left"
+                    className="absolute top-[80%] left-0 mt-2 w-72 bg-[#1A0B38] border border-white/10 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-hidden origin-top-left"
                   >
                     <div className="flex flex-col p-2">
                       <Link to="#" className="px-4 py-3 rounded-xl hover:bg-white/5 hover:text-[#8C52FF] transition-all flex items-center gap-3 group/link">
@@ -85,28 +107,32 @@ export default function Navbar() {
             </div>
 
             <Link to="#" className="relative hover:text-[#8C52FF] transition-colors group py-2">
-              NFET Exam
+              Why TechLearns
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#8C52FF] transition-all duration-300 group-hover:w-full rounded-full"></span>
             </Link>
+            
             <Link to="#" className="relative hover:text-[#8C52FF] transition-colors group py-2">
-              Campus Life
+              Placements
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#8C52FF] transition-all duration-300 group-hover:w-full rounded-full"></span>
             </Link>
+
             <Link to="#" className="relative hover:text-[#8C52FF] transition-colors group py-2">
-              Blogs
+              Campus
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#8C52FF] transition-all duration-300 group-hover:w-full rounded-full"></span>
             </Link>
+
             <Link to="#" className="relative hover:text-[#8C52FF] transition-colors group py-2">
-              About Us
+              About
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#8C52FF] transition-all duration-300 group-hover:w-full rounded-full"></span>
             </Link>
+            
           </nav>
 
           {/* Right Section (CTA + Search) */}
           <div className="hidden lg:flex items-center gap-4 lg:gap-6">
             <Link
               to="#apply"
-              className="relative inline-flex items-center justify-center px-6 lg:px-8 py-3 text-[13px] lg:text-[14px] font-bold text-white uppercase tracking-wider rounded-full bg-gradient-to-r from-[#5B2D91] to-[#8C52FF] group overflow-hidden shadow-[0_8px_20px_rgba(140,82,255,0.25)] hover:shadow-[0_12px_25px_rgba(91,45,145,0.35)] hover:-translate-y-0.5 transition-all duration-300"
+              className="relative inline-flex items-center justify-center px-6 lg:px-8 py-3 text-[13px] lg:text-[14px] font-bold text-white uppercase tracking-wider rounded-full bg-[#8C52FF] hover:bg-[#7a41ec] group overflow-hidden shadow-[0_8px_20px_rgba(140,82,255,0.3)] hover:shadow-[0_12px_25px_rgba(140,82,255,0.45)] transition-all duration-300"
             >
               {/* Shimmer Effect */}
               <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:animate-shimmer" />
@@ -115,9 +141,9 @@ export default function Navbar() {
               </span>
             </Link>
 
-            <button className="w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-white/5 border border-white/10 shadow-sm flex items-center justify-center text-neutral-400 hover:bg-white/10 hover:text-white transition-all backdrop-blur-sm">
+            {/* <button className="w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-white/5 border border-white/10 shadow-sm flex items-center justify-center text-neutral-400 hover:bg-white/10 hover:text-white transition-all backdrop-blur-sm">
               <Search className="w-4 h-4 lg:w-5 lg:h-5" />
-            </button>
+            </button> */}
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -143,7 +169,7 @@ export default function Navbar() {
             className="xl:hidden bg-[#0A0A0A]/95 backdrop-blur-2xl border-b border-white/10 overflow-hidden shadow-2xl"
           >
             <div className="px-4 py-6 flex flex-col gap-2 max-h-[80vh] overflow-y-auto">
-              {['Home', 'Programs', 'NFET Exam', 'Campus Life', 'Blogs', 'About Us'].map((item, i) => (
+              {['Programs', 'Why TechLearns', 'Placements', 'Campus', 'About'].map((item, i) => (
                 <motion.div
                   key={item}
                   initial={{ opacity: 0, x: -20 }}
@@ -165,7 +191,7 @@ export default function Navbar() {
                 <Link
                   to="#apply"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center w-full px-6 py-4 text-[15px] font-bold text-white uppercase tracking-wider rounded-xl bg-gradient-to-r from-[#5B2D91] to-[#8C52FF] text-center shadow-[0_8px_20px_rgba(140,82,255,0.3)] active:scale-95 transition-transform"
+                  className="flex items-center justify-center w-full px-6 py-4 text-[15px] font-bold text-white uppercase tracking-wider rounded-xl bg-[#8C52FF] hover:bg-[#7a41ec] text-center shadow-[0_8px_20px_rgba(140,82,255,0.3)] active:scale-95 transition-transform"
                 >
                   Apply Now
                 </Link>

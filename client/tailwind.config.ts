@@ -2,23 +2,32 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}"
   ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
-        bebas: ["var(--font-bebas)", "Bebas Neue", "sans-serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
+        bebas: ["Bebas Neue", "sans-serif"],
       },
       keyframes: {
         shimmer: {
           '100%': { transform: 'translateX(100%)' }
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' }
+        },
+        marquee_reverse: {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0%)' }
         }
       },
       animation: {
-        shimmer: 'shimmer 2s infinite'
+        shimmer: 'shimmer 2s infinite',
+        marquee: 'marquee 40s linear infinite',
+        marquee_reverse: 'marquee_reverse 40s linear infinite'
       }
     },
   },
