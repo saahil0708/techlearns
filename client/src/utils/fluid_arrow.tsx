@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 export const FluidArrowRight = ({ size = 20, className = "" }: { size?: number; className?: string }) => (
   <svg
