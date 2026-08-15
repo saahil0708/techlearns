@@ -1,142 +1,147 @@
-
 import { FadeIn } from "../animations/FadeIn";
-import { Check } from "lucide-react";
+import { GraduationCap, Users, Briefcase, TrendingUp, CheckCircle2, Download, Code2 } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative w-full min-h-screen pt-32 pb-24 flex items-center justify-center bg-gradient-to-b from-[#0A0216] via-[#14062E] to-[#0A0216] overflow-hidden font-flexa">
+    <section id="hero" className="relative w-full min-h-screen pb-24 flex items-center justify-center bg-gradient-to-br from-[#F9F9FB] via-[#F3E5F5]/40 to-[#F9F9FB] overflow-hidden font-flexa">
+      
+      {/* Premium Polka Dot Pattern */}
+      <div className="absolute inset-0 z-0 opacity-[0.25]" style={{ backgroundImage: 'radial-gradient(#8C52FF 1.5px, transparent 1.5px)', backgroundSize: '30px 30px' }}></div>
 
-      {/* Ambient background glows */}
-      <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[80%] h-[600px] bg-[#8C52FF]/15 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-[10%] -left-[10%] w-[500px] h-[500px] bg-[#4B2579]/30 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute top-[30%] -right-[10%] w-[600px] h-[600px] bg-[#6B21A8]/20 rounded-full blur-[150px] pointer-events-none" />
+      {/* Subtle background ambient blobs */}
+      <div className="absolute top-[-10%] right-[-5%] w-[800px] h-[800px] bg-[#8C52FF]/10 rounded-full blur-[150px] pointer-events-none z-0" />
+      <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#5B2D91]/10 rounded-full blur-[150px] pointer-events-none z-0" />
 
-      <div className="w-full max-w-[1400px] mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mt-12 lg:mt-0">
-
-        {/* Left Column (Span 7) */}
-        <div className="lg:col-span-7 flex flex-col items-start w-full relative">
-
+      <div className="w-full max-w-[1400px] mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        {/* Left Column (Span 6) */}
+        <div className="lg:col-span-6 flex flex-col items-start w-full relative z-20">
           <FadeIn direction="up" delay={0.1} className="w-full">
+            
+            {/* Outline Tag */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#5B2D91]/30 bg-white/80 backdrop-blur-sm shadow-sm mb-8">
+              <GraduationCap className="text-[#5B2D91] w-5 h-5" />
+              <span className="text-[#5B2D91] font-bebas text-lg tracking-widest uppercase mt-0.5">Corporate Learning Experience</span>
+            </div>
+
             {/* Headline */}
-            <h1 className="text-[52px] sm:text-[64px] xl:text-[72px] font-semibold leading-[1.1] tracking-tight mb-6 text-white">
-              <span className="text-[#8C52FF]">Learn</span> Today. <span className="text-[#8C52FF]">Lead Tomorrow.</span>
+            <h1 className="text-[52px] sm:text-[64px] lg:text-[64px] font-medium font-flexa leading-[1.05] mb-6 text-[#0B1F3A]">
+              Corporate Learning <span className="text-[#5B2D91] font-bebas tracking-[0.1em] font-semibold">Experience</span> that Drives Results
             </h1>
+            <div className="w-24 h-1.5 bg-[#5B2D91] mb-8 rounded-full" />
 
             {/* Sub-paragraph */}
-            <p className="text-gray-400 text-lg sm:text-[20px] leading-relaxed mb-10 max-w-[90%] font-medium">
-              India's Premier Academy for <span className="text-white font-bold">Future-Ready Tech Professionals.</span> We build integrated learning ecosystems that replace fragmented education with predictable, automated career growth.
+            <p className="text-gray-600 text-lg sm:text-[20px] leading-relaxed mb-12 max-w-[90%] font-medium">
+              Empowering teams with industry-relevant skills, expert mentorship and real-world learning.
             </p>
 
-            {/* 3-Column Bullet Points */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12 pt-5">
-              <div className="flex items-start gap-2">
-                <Check className="w-4 h-4 mt-1 text-[#8C52FF] shrink-0 -translate-y-1" strokeWidth={3} />
-                <p className="text-sm text-gray-400 leading-tight">
-                  <strong className="text-white">Live Training</strong> — Instructor-Led
-                </p>
+            {/* 3 Horizontal Features */}
+            <div className="flex flex-col sm:flex-row gap-6 sm:gap-8">
+              {/* Feature 1 */}
+              <div className="flex flex-col items-start max-w-[180px]">
+                <div className="w-14 h-14 rounded-full bg-[#5B2D91]/10 flex items-center justify-center mb-4 border border-[#5B2D91]/20 shadow-[0_0_15px_rgba(91,45,145,0.1)]">
+                  <Users className="text-[#5B2D91] w-7 h-7" />
+                </div>
+                <h4 className="text-[#0B1F3A] font-bold text-sm mb-1">Expert-Led Training</h4>
+                <p className="text-gray-500 text-xs leading-relaxed font-medium">Learn from industry professionals</p>
               </div>
-              <div className="flex items-start gap-2">
-                <Check className="w-4 h-4 mt-1 text-[#8C52FF] shrink-0 -translate-y-1" strokeWidth={3} />
-                <p className="text-sm text-gray-400 leading-tight">
-                  <strong className="text-white">Modern Tech</strong> — AI Tools included
-                </p>
+              
+              {/* Feature 2 */}
+              <div className="flex flex-col items-start max-w-[180px]">
+                <div className="w-14 h-14 rounded-full bg-[#5B2D91]/10 flex items-center justify-center mb-4 border border-[#5B2D91]/20 shadow-[0_0_15px_rgba(91,45,145,0.1)]">
+                  <Briefcase className="text-[#5B2D91] w-7 h-7" />
+                </div>
+                <h4 className="text-[#0B1F3A] font-bold text-sm mb-1">Job-Ready Skills</h4>
+                <p className="text-gray-500 text-xs leading-relaxed font-medium">Build practical skills that employers value</p>
               </div>
-              <div className="flex items-start gap-2">
-                <Check className="w-4 h-4 mt-1 text-[#8C52FF] shrink-0 -translate-y-1" strokeWidth={3} />
-                <p className="text-sm text-gray-400 leading-tight">
-                  <strong className="text-white">Certification</strong> — & Placement Support
-                </p>
+
+              {/* Feature 3 */}
+              <div className="flex flex-col items-start max-w-[180px]">
+                <div className="w-14 h-14 rounded-full bg-[#5B2D91]/10 flex items-center justify-center mb-4 border border-[#5B2D91]/20 shadow-[0_0_15px_rgba(91,45,145,0.1)]">
+                  <TrendingUp className="text-[#5B2D91] w-7 h-7" />
+                </div>
+                <h4 className="text-[#0B1F3A] font-bold text-sm mb-1">Measurable Impact</h4>
+                <p className="text-gray-500 text-xs leading-relaxed font-medium">Boost productivity and business growth</p>
               </div>
             </div>
-
-            {/* Buttons */}
-            {/* <div className="flex flex-wrap items-center gap-4 mb-16">
-              <button className="bg-[#8C52FF] hover:bg-[#7a41ec] text-white font-bold text-[15px] px-8 py-3.5 rounded-full transition-colors shadow-[0_0_20px_rgba(140,82,255,0.4)]">
-                Explore Programs
-              </button>
-              <button className="bg-transparent border border-[#8C52FF] text-white hover:bg-[#8C52FF]/10 font-bold text-[15px] px-8 py-3.5 rounded-full transition-colors">
-                Book Counselling
-              </button>
-            </div> */}
-
-            {/* 3-Column Stats Row */}
-            <div className="grid grid-cols-3 gap-8 pt-7">
-              <div className="flex flex-col">
-                <span className="text-[#8C52FF] text-[32px] sm:text-[40px] font-semibold leading-none mb-1 drop-shadow-[0_0_10px_rgba(140,82,255,0.3)]">120+</span>
-                <span className="text-gray-500 text-[13px] font-medium tracking-wide">Hours of Training</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-[#8C52FF] text-[32px] sm:text-[40px] font-semibold leading-none mb-1 drop-shadow-[0_0_10px_rgba(140,82,255,0.3)]">8+</span>
-                <span className="text-gray-500 text-[13px] font-medium tracking-wide">Real-World Projects</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-[#8C52FF] text-[32px] sm:text-[40px] font-semibold leading-none mb-1 drop-shadow-[0_0_10px_rgba(140,82,255,0.3)]">100%</span>
-                <span className="text-gray-500 text-[13px] font-medium tracking-wide">Placement Support</span>
-              </div>
-            </div>
+            
           </FadeIn>
-
         </div>
 
-        {/* Right Column (Span 5) - Isometric Illustration Placeholder */}
-        <div className="lg:col-span-5 relative w-full h-[500px] flex items-center justify-center">
-          <FadeIn direction="left" delay={0.3} className="w-full h-full relative">
+        {/* Right Column (Span 6) - White Card with Student Image */}
+        <div className="lg:col-span-6 relative w-full h-[650px] lg:h-[700px] flex items-end justify-center pt-10 mt-10 lg:mt-0">
+          
+          <FadeIn direction="left" delay={0.3} className="w-full h-full relative flex items-end">
+            
+            {/* The White Background Card */}
+            <div className="absolute inset-x-0 bottom-0 top-12 bg-white rounded-[40px] shadow-[0_20px_60px_rgba(91,45,145,0.08)] border border-white overflow-hidden z-10">
+              
+              {/* Decorative Purple Quarter Circle Top Right */}
+              <div className="absolute top-0 right-0 w-[350px] h-[350px] bg-gradient-to-bl from-[#8C52FF]/15 to-transparent rounded-bl-full pointer-events-none" />
+              
+              {/* Glowing Soft Purple Circle Bottom Left */}
+              <div className="absolute -bottom-24 -left-24 w-[400px] h-[400px] bg-[#5B2D91]/5 rounded-full blur-[60px] pointer-events-none" />
 
-            <div className="absolute inset-0 flex items-center justify-center perspective-[2000px]">
+              {/* Decorative Dot Matrix Top Right */}
+              <div className="absolute top-8 right-8 w-32 h-32 opacity-[0.15] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#5B2D91 2px, transparent 2px)', backgroundSize: '16px 16px' }} />
+              
+              {/* Faint Watermark Logo */}
+              <Code2 className="absolute -bottom-12 -right-4 w-72 h-72 text-[#5B2D91]/[0.03] -rotate-12 pointer-events-none" />
 
-              {/* Phone Frame */}
-              <div className="relative w-[280px] h-[550px] bg-[#0A0514] border border-white/20 rounded-[40px] shadow-[0_30px_60px_rgba(0,0,0,0.8)] flex flex-col p-4 backdrop-blur-md">
-
-                {/* Glowing border effect */}
-                <div className="absolute inset-0 rounded-[40px] border border-[#8C52FF]/30 pointer-events-none" />
-
-                {/* Header inside phone */}
-                <div className="flex items-center gap-2 mb-6">
-                  <div className="w-6 h-6 bg-[#8C52FF] rounded-md shrink-0 shadow-[0_0_10px_rgba(140,82,255,0.5)]" />
-                  <div className="h-3 w-24 bg-white/20 rounded-full" />
-                  <div className="ml-auto w-12 h-3 bg-white/10 rounded-full" />
+              <div className="p-8 lg:p-12 relative z-10 w-full h-full flex flex-col justify-center">
+                
+                {/* Refined Heading */}
+                <div className="mb-6 relative z-30">
+                  <h3 className="text-[#0B1F3A] text-xl font-bold font-flexa tracking-tight">
+                    Start Your Journey With
+                  </h3>
+                  <h2 className="text-[40px] lg:text-[46px] font-bebas tracking-wide bg-gradient-to-r from-[#5B2D91] to-[#8C52FF] bg-clip-text text-transparent leading-[1.1] mt-1 drop-shadow-sm">
+                    TECHLEARNS ACADEMY
+                  </h2>
+                </div>
+                
+                {/* Sleek Subtitle Badge */}
+                <div className="inline-flex items-center gap-2 py-2.5 mb-8 relative z-30">
+                  <Code2 className="w-4 h-4 text-[#5B2D91]" />
+                  <span className="text-[#0B1F3A] font-bold text-[13px] tracking-wide">
+                    Full Stack Web Development with <span className="text-[#5B2D91] font-extrabold py-0.5 text-xs">AI</span>
+                  </span>
                 </div>
 
-                {/* Chat Bubbles / Data rows */}
-                <div className="flex flex-col gap-4 mb-auto">
-                  <div className="w-full h-12 border border-white/10 rounded-2xl p-2 flex items-center gap-2 bg-white/5">
-                    <div className="w-6 h-6 rounded-full border border-white/20 bg-white/10" />
-                    <div className="h-2 w-16 bg-white/20 rounded-full" />
-                  </div>
-                  <div className="w-[80%] ml-auto h-12 bg-[#8C52FF]/20 border border-[#8C52FF]/40 rounded-2xl rounded-tr-sm p-2 flex items-center justify-end gap-2 shadow-[0_0_15px_rgba(140,82,255,0.1)]">
-                    <div className="h-2 w-12 bg-white/50 rounded-full" />
-                    <div className="w-6 h-6 rounded-full bg-[#8C52FF]" />
-                  </div>
-                </div>
+                {/* Enhanced List */}
+                <ul className="flex flex-col gap-4 mb-10 relative z-30">
+                  {[
+                    "4 Months Intensive Program",
+                    "Live Instructor-Led Training",
+                    "Real-world Hands-on Projects",
+                    "AI Tools & Modern Technologies",
+                    "100% Placement Assistance"
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex items-center gap-3 group cursor-default">
+                      <div className="w-6 h-6 rounded-full border-2 border-[#5B2D91]/20 flex items-center justify-center shrink-0 bg-white shadow-sm group-hover:border-[#5B2D91] group-hover:bg-[#5B2D91] transition-colors duration-300">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#5B2D91] group-hover:text-white transition-colors duration-300" strokeWidth={3} />
+                      </div>
+                      <span className="text-gray-700 text-[15px] font-semibold tracking-wide group-hover:text-[#0B1F3A] group-hover:translate-x-1 transition-all duration-300">{item}</span>
+                    </li>
+                  ))}
+                </ul>
 
-                {/* Floating elements outside the phone */}
-                <div className="absolute top-1/4 -left-[40%] w-[200px] h-[100px] bg-[#0A0514] border border-white/20 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.6)] flex p-3 backdrop-blur-xl">
-                  <div className="w-1/3 border-r border-white/10 pr-2 flex flex-col gap-1 justify-center text-[8px] font-bold text-gray-500">
-                    <span className="text-right w-full">MON</span>
-                    <span className="text-right w-full">TUE</span>
-                    <span className="text-right w-full">WED</span>
-                  </div>
-                  <div className="w-2/3 pl-2 flex items-center justify-center">
-                    <div className="w-[80%] h-[60%] bg-[#8C52FF]/30 border border-[#8C52FF]/50 rounded-lg shadow-[0_0_10px_rgba(140,82,255,0.2)]" />
-                  </div>
-                </div>
-
-                {/* Floating Stats Card at bottom right */}
-                <div className="absolute bottom-1/4 -right-[20%] w-[180px] h-[80px] bg-[#0A0514] border border-white/20 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.6)] flex flex-col p-3 backdrop-blur-xl">
-                  <div className="flex justify-between items-start mb-2">
-                    <span className="text-[10px] font-bold leading-tight text-gray-400">Cumulative<br />Career Growth</span>
-                    <div className="flex gap-1 items-end">
-                      <div className="w-2 h-8 bg-[#8C52FF]/40 rounded-sm" />
-                      <div className="w-2 h-10 bg-[#8C52FF]/70 rounded-sm" />
-                      <div className="w-2 h-12 bg-[#8C52FF] rounded-sm shadow-[0_0_10px_rgba(140,82,255,0.5)]" />
-                    </div>
-                  </div>
-                  <span className="text-lg font-bold text-white">85.3%</span>
-                </div>
-
+                {/* Action Button */}
+                <button className="relative z-30 flex items-center gap-3 px-8 py-3.5 bg-gradient-to-r from-[#5B2D91] to-[#8C52FF] text-white font-bebas text-lg rounded-xl hover:shadow-[0_15px_30px_rgba(91,45,145,0.3)] hover:-translate-y-1 transition-all duration-300 tracking-widest self-start overflow-hidden group">
+                  <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:animate-[shimmer_1.5s_infinite]" />
+                  <span className="relative z-10">DOWNLOAD DOSSIER</span> 
+                  <Download className="w-4 h-4 mb-0.5 relative z-10 group-hover:animate-bounce" />
+                </button>
               </div>
-
             </div>
+
+            {/* Student Image */}
+            <img 
+              src="/images/Hero-Picsart-AiImageEnhancer.png" 
+              alt="Student holding laptop" 
+              className="absolute bottom-0 -right-16 lg:-right-44 w-[85%] lg:w-[105%] max-w-none h-auto object-contain pointer-events-none mix-blend-darken z-20"
+            />
+            
           </FadeIn>
         </div>
 

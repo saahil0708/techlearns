@@ -1,6 +1,6 @@
 
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,34 +8,9 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  
-  const [isHidden, setIsHidden] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      // Hide on scroll down (if scrolled past 100px), show on scroll up
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsHidden(true);
-      } else if (currentScrollY < lastScrollY) {
-        setIsHidden(false);
-      }
-      
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-[200] flex flex-col font-flexa bg-[#050505] border-b border-white/10 shadow-md transition-transform duration-300 ease-in-out ${
-        isHidden ? "-translate-y-full" : "translate-y-0"
-      }`}
-    >
+    <header className="relative w-full z-[200] flex flex-col font-flexa bg-[#050505] border-b border-white/10 shadow-md">
       <div className="mx-auto w-full max-w-[1400px]">
         <div className="relative flex items-center justify-between px-4 lg:px-8 h-[90px]">
           {/* Logo Section */}
@@ -59,7 +34,11 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <nav className="hidden xl:flex items-center gap-8 text-[14px] lg:text-[15px] font-semibold text-white/90 h-full">
-            
+            <Link to="/" className="relative hover:text-[#8C52FF] transition-colors group py-2">
+              Home
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#8C52FF] transition-all duration-300 group-hover:w-full rounded-full"></span>
+            </Link>
+
             {/* Programs Dropdown */}
             <div
               className="relative flex items-center gap-1.5 hover:text-[#8C52FF] transition-colors h-full cursor-pointer group"
@@ -82,23 +61,27 @@ export default function Navbar() {
                     className="absolute top-[80%] left-0 mt-2 w-72 bg-[#1A0B38] border border-white/10 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-hidden origin-top-left"
                   >
                     <div className="flex flex-col p-2">
-                      <Link to="#" className="px-4 py-3 rounded-xl hover:bg-white/5 hover:text-[#8C52FF] transition-all flex items-center gap-3 group/link">
+                      <Link to="/program/full-stack-web-development" className="px-4 py-3 rounded-xl hover:bg-white/5 hover:text-[#8C52FF] transition-all flex items-center gap-3 group/link">
                         <div className="w-8 h-8 rounded-full bg-[#8C52FF]/10 flex items-center justify-center group-hover/link:bg-[#5B2D91]/30 transition-colors">
                           <span className="text-[#8C52FF] text-xs font-bold">FS</span>
                         </div>
                         <span className="font-medium text-white group-hover/link:text-[#8C52FF]">Full Stack Web Development</span>
                       </Link>
-                      <Link to="#" className="px-4 py-3 rounded-xl hover:bg-white/5 hover:text-[#8C52FF] transition-all flex items-center gap-3 group/link">
+                      <Link to="/program/data-science-ai" className="px-4 py-3 rounded-xl hover:bg-white/5 hover:text-[#8C52FF] transition-all flex items-center gap-3 group/link">
                         <div className="w-8 h-8 rounded-full bg-[#8C52FF]/10 flex items-center justify-center group-hover/link:bg-[#5B2D91]/30 transition-colors">
                           <span className="text-[#8C52FF] text-xs font-bold">DS</span>
                         </div>
                         <span className="font-medium text-white group-hover/link:text-[#8C52FF]">Data Science & AI</span>
                       </Link>
-                      <Link to="#" className="px-4 py-3 rounded-xl hover:bg-white/5 hover:text-[#8C52FF] transition-all flex items-center gap-3 group/link">
+                      <Link to="/program/cyber-security" className="px-4 py-3 rounded-xl hover:bg-white/5 hover:text-[#8C52FF] transition-all flex items-center gap-3 group/link">
                         <div className="w-8 h-8 rounded-full bg-[#8C52FF]/10 flex items-center justify-center group-hover/link:bg-[#5B2D91]/30 transition-colors">
                           <span className="text-[#8C52FF] text-xs font-bold">CS</span>
                         </div>
                         <span className="font-medium text-white group-hover/link:text-[#8C52FF]">Cyber Security</span>
+                      </Link>
+                      <div className="h-px bg-white/10 my-1"></div>
+                      <Link to="/programs" className="px-4 py-3 rounded-xl hover:bg-[#5B2D91]/20 text-[#8C52FF] transition-all flex items-center justify-center gap-2 group/link border border-transparent hover:border-[#5B2D91]/30">
+                        <span className="font-bold text-sm tracking-wide uppercase">View All Programs</span>
                       </Link>
                     </div>
                   </motion.div>
@@ -106,33 +89,33 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
-            <Link to="#" className="relative hover:text-[#8C52FF] transition-colors group py-2">
+            <Link to="/why-techlearns" className="relative hover:text-[#8C52FF] transition-colors group py-2">
               Why TechLearns
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#8C52FF] transition-all duration-300 group-hover:w-full rounded-full"></span>
             </Link>
-            
-            <Link to="#" className="relative hover:text-[#8C52FF] transition-colors group py-2">
+
+            <Link to="/placements" className="relative hover:text-[#8C52FF] transition-colors group py-2">
               Placements
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#8C52FF] transition-all duration-300 group-hover:w-full rounded-full"></span>
             </Link>
 
-            <Link to="#" className="relative hover:text-[#8C52FF] transition-colors group py-2">
+            <Link to="/campus" className="relative hover:text-[#8C52FF] transition-colors group py-2">
               Campus
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#8C52FF] transition-all duration-300 group-hover:w-full rounded-full"></span>
             </Link>
 
-            <Link to="#" className="relative hover:text-[#8C52FF] transition-colors group py-2">
+            <Link to="/about" className="relative hover:text-[#8C52FF] transition-colors group py-2">
               About
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#8C52FF] transition-all duration-300 group-hover:w-full rounded-full"></span>
             </Link>
-            
+
           </nav>
 
           {/* Right Section (CTA + Search) */}
           <div className="hidden lg:flex items-center gap-4 lg:gap-6">
             <Link
-              to="#apply"
-              className="relative inline-flex items-center justify-center px-6 lg:px-8 py-3 text-[13px] lg:text-[14px] font-bold text-white uppercase tracking-wider rounded-full bg-[#8C52FF] hover:bg-[#7a41ec] group overflow-hidden shadow-[0_8px_20px_rgba(140,82,255,0.3)] hover:shadow-[0_12px_25px_rgba(140,82,255,0.45)] transition-all duration-300"
+              to="/apply"
+              className="relative inline-flex items-center justify-center px-6 lg:px-8 py-3 text-[13px] lg:text-[14px] font-bold text-white uppercase tracking-wider rounded-md bg-[#8C52FF] hover:bg-[#7a41ec] group overflow-hidden shadow-[0_8px_20px_rgba(140,82,255,0.3)] hover:shadow-[0_12px_25px_rgba(140,82,255,0.45)] transition-all duration-300"
             >
               {/* Shimmer Effect */}
               <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:animate-shimmer" />
@@ -169,18 +152,31 @@ export default function Navbar() {
             className="xl:hidden bg-[#0A0A0A]/95 backdrop-blur-2xl border-b border-white/10 overflow-hidden shadow-2xl"
           >
             <div className="px-4 py-6 flex flex-col gap-2 max-h-[80vh] overflow-y-auto">
-              {['Programs', 'Why TechLearns', 'Placements', 'Campus', 'About'].map((item, i) => (
-                <motion.div
-                  key={item}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
-                >
-                  <Link to="#" onClick={() => setMobileMenuOpen(false)} className="block text-white/90 hover:text-[#8C52FF] font-semibold text-xl py-3 border-b border-white/5 transition-colors">
-                    {item}
-                  </Link>
-                </motion.div>
-              ))}
+              {['Home', 'Programs', 'Why TechLearns', 'Placements', 'Campus', 'About'].map((item, i) => {
+                const getPath = (name: string) => {
+                  switch (name) {
+                    case 'Home': return '/';
+                    case 'Programs': return '/programs';
+                    case 'Why TechLearns': return '/why-techlearns';
+                    case 'Placements': return '/placements';
+                    case 'Campus': return '/campus';
+                    case 'About': return '/about';
+                    default: return '#';
+                  }
+                };
+                return (
+                  <motion.div
+                    key={item}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                  >
+                    <Link to={getPath(item)} onClick={() => setMobileMenuOpen(false)} className="block text-white/90 hover:text-[#8C52FF] font-semibold text-xl py-3 border-b border-white/5 transition-colors">
+                      {item}
+                    </Link>
+                  </motion.div>
+                )
+              })}
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -189,9 +185,9 @@ export default function Navbar() {
                 className="mt-6"
               >
                 <Link
-                  to="#apply"
+                  to="/apply"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center w-full px-6 py-4 text-[15px] font-bold text-white uppercase tracking-wider rounded-xl bg-[#8C52FF] hover:bg-[#7a41ec] text-center shadow-[0_8px_20px_rgba(140,82,255,0.3)] active:scale-95 transition-transform"
+                  className="flex items-center justify-center w-full px-6 py-4 text-[15px] font-bold text-white uppercase tracking-wider rounded-md bg-[#8C52FF] hover:bg-[#7a41ec] text-center shadow-[0_8px_20px_rgba(140,82,255,0.3)] active:scale-95 transition-transform"
                 >
                   Apply Now
                 </Link>

@@ -1,5 +1,5 @@
-
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 import { MessageSquare, Mail } from 'lucide-react';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -80,10 +80,13 @@ export default function Footer() {
               <ul className="flex flex-col gap-3">
                 {section.links.map((link, linkIdx) => (
                   <li key={linkIdx}>
-                    <a href="#" className="font-flexa text-[#8a8a8a] hover:text-white text-[15px] font-medium transition-all duration-300 flex items-center gap-2 group/link">
+                    <Link 
+                      to={link === "View All Programs" ? "/programs" : "#"} 
+                      className="font-flexa text-[#8a8a8a] hover:text-white text-[15px] font-medium transition-all duration-300 flex items-center gap-2 group/link"
+                    >
                       <span className="w-0 h-px bg-[#caff00] transition-all duration-300 group-hover/link:w-3"></span>
                       <span className="group-hover/link:translate-x-1 transition-transform duration-300">{link}</span>
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

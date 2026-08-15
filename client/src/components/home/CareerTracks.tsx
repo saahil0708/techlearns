@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom';
 import { FadeIn } from '../animations/FadeIn';
 import { Clock, Brain, Cpu, Globe, ScatterChart } from 'lucide-react';
 import { FluidArrowRight } from '@/utils/fluid_arrow';
@@ -6,6 +6,7 @@ import { FluidArrowRight } from '@/utils/fluid_arrow';
 const tracks = [
   {
     title: "AI Foundations & Productivity",
+    slug: "data-science-ai",
     duration: "4–6 weeks",
     tags: ["AI Literacy", "Prompting", "Workflow Design", "Responsible Use"],
     icon: Brain,
@@ -15,6 +16,7 @@ const tracks = [
   },
   {
     title: "GenAI & Agentic AI",
+    slug: "data-science-ai",
     duration: "5–6 months",
     tags: ["Python", "APIs", "RAG", "Agents", "LLMOps"],
     icon: Cpu,
@@ -24,6 +26,7 @@ const tracks = [
   },
   {
     title: "Full-Stack Software Engineering with AI",
+    slug: "full-stack-web-development",
     duration: "6–9 months",
     tags: ["DSA", "Frontend", "Backend", "Cloud"],
     icon: Globe,
@@ -33,6 +36,7 @@ const tracks = [
   },
   {
     title: "Data Analytics + BI + GenAI",
+    slug: "data-science-ai",
     duration: "4–6 months",
     tags: ["SQL", "Python", "Power BI", "Statistics"],
     icon: ScatterChart,
@@ -79,7 +83,7 @@ export default function CareerTracks() {
         </FadeIn>
 
         {/* Bento Box Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 w-full max-w-6xl mx-auto">
           {tracks.map((track, index) => {
             const Icon = track.icon;
             const isAlt = index % 2 === 1;
@@ -87,7 +91,7 @@ export default function CareerTracks() {
             const cardBg = isAlt ? "bg-[#5B2D91]" : "bg-white/90 backdrop-blur-md";
             const titleColor = isAlt ? "text-white group-hover:from-white group-hover:to-[#E3D9F0]" : "text-[#0B1F3A] group-hover:from-[#0B1F3A] group-hover:to-[#604B7E]";
             const durationColor = isAlt ? "text-[#caff00] group-hover:text-[#e0ff33]" : "text-[#8C52FF] group-hover:text-[#5B2D91]";
-            const linkColor = isAlt ? "text-[#caff00]" : "text-[#5B2D91]";
+
             const bgIconColor = isAlt ? "text-white opacity-[0.03] group-hover:opacity-[0.08]" : "text-[#5B2D91] opacity-5 group-hover:opacity-10 drop-shadow-[0_0_30px_rgba(91,45,145,0.2)]";
 
             return (
@@ -126,7 +130,7 @@ export default function CareerTracks() {
                       </h3>
 
                       {/* Glowing LED Tags */}
-                      <div className="flex flex-wrap gap-2.5 mb-12">
+                      <div className="flex flex-wrap gap-2.5 mb-8">
                         {track.tags.map((tag, i) => (
                           <span
                             key={i}
@@ -137,10 +141,48 @@ export default function CareerTracks() {
                         ))}
                       </div>
 
-                      {/* View Program Link */}
-                      <div className={`mt-auto underline flex items-center ${linkColor} font-bebas text-sm uppercase tracking-[0.2em] font-bold opacity-80 group-hover:opacity-100 transition-opacity duration-300`}>
-                        View Program
-                        <FluidArrowRight size={18} className="ml-3 transform group-hover:translate-x-3 transition-transform duration-500" />
+                      {/* Features List */}
+                      <div className="flex flex-col gap-3 mb-8 flex-grow">
+                        {[
+                          "Get a professional certificate on completion of course",
+                          "Unlimited mock interviews for your interview practice",
+                          "Access to 10,000+ coding questions in our Arena",
+                          "100% Placement Assistance (Lifetime)",
+                          "No coding experience required"
+                        ].map((feature, idx) => (
+                          <div key={idx} className="flex items-start gap-3">
+                            <div className={`mt-1 shrink-0 p-[3px] rounded-full flex items-center justify-center ${isAlt ? 'bg-white/10 border border-white/20 shadow-[0_0_10px_rgba(255,255,255,0.1)]' : 'bg-gradient-to-br from-[#8C52FF] to-[#5B2D91] shadow-[0_0_10px_rgba(140,82,255,0.2)]'}`}>
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                              </svg>
+                            </div>
+                            <span className={`text-sm md:text-[15px] font-flexa font-medium leading-relaxed ${isAlt ? "text-gray-300" : "text-gray-700"}`}>
+                              {feature}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Action Buttons */}
+                      <div className={`mt-auto flex flex-col sm:flex-row gap-4 pt-6 border-t ${isAlt ? 'border-white/10' : 'border-gray-200'}`}>
+                        <Link to={`/program/${track.slug}`} className={`group/btn w-full sm:w-1/2 flex items-center justify-center gap-2 py-4 px-4 rounded-xl font-flexa font-bold text-[16px] tracking-wide transition-all duration-500 overflow-hidden relative ${isAlt ? 'bg-gradient-to-r from-[#caff00] to-[#b3e600] text-[#14062E] hover:shadow-[0_0_30px_rgba(202,255,0,0.5)] hover:-translate-y-1' : 'bg-gradient-to-r from-[#7237BC] via-[#8C52FF] to-[#5B2D91] bg-[length:200%_auto] hover:bg-[100%_center] text-white border border-[#a855f7]/50 shadow-[0_4px_25px_-5px_rgba(140,82,255,0.5)] hover:shadow-[0_8px_30px_-5px_rgba(140,82,255,0.6)] hover:-translate-y-1'}`}>
+                          {/* Inner glow/sheen effect */}
+                          <div className="absolute inset-0 bg-white/20 -translate-x-[150%] skew-x-[-15deg] group-hover/btn:animate-[shine_1.5s_ease-in-out]"></div>
+                          <span className="relative z-10 flex items-center gap-2">
+                            Explore Course
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="transform group-hover/btn:translate-x-1.5 transition-transform duration-300">
+                              <path d="M9 18l6-6-6-6" />
+                            </svg>
+                          </span>
+                        </Link>
+                        <button className={`w-full sm:w-1/2 flex items-center justify-center gap-2 py-4 px-4 rounded-xl font-flexa font-bold text-[16px] tracking-wide transition-all duration-500 backdrop-blur-sm ${isAlt ? "border-2 border-white/20 text-white bg-white/5 hover:bg-white/20 hover:border-white/40 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]" : "border-2 border-[#5B2D91]/20 text-[#5B2D91] bg-[#5B2D91]/5 hover:bg-[#5B2D91]/10 hover:border-[#5B2D91]/40 hover:-translate-y-1 hover:shadow-[0_4px_15px_-5px_rgba(91,45,145,0.2)]"}`}>
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transform group-hover:translate-y-0.5 transition-transform duration-300">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                          </svg>
+                          Download Brochure
+                        </button>
                       </div>
 
                     </div>
@@ -154,13 +196,13 @@ export default function CareerTracks() {
 
         {/* View All Programs Button */}
         <FadeIn delay={0.4} direction="up" className="mt-16 flex justify-center">
-          <button className="group relative px-8 py-4 bg-[#5B2D91] text-white font-bebas text-xl tracking-wider rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(168,85,247,0.6)] border border-[#a855f7]/30">
+          <Link to="/programs" className="group relative px-8 py-4 bg-[#5B2D91] text-white font-bebas text-xl tracking-wider rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(168,85,247,0.6)] border border-[#a855f7]/30">
             <div className="absolute inset-0 bg-gradient-to-r from-[#7237BC] to-[#5B2D91] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <span className="relative z-10 flex items-center gap-2">
               VIEW ALL PROGRAMS
               <FluidArrowRight size={20} className="transform group-hover:translate-x-2 transition-transform duration-300" />
             </span>
-          </button>
+          </Link>
         </FadeIn>
 
       </div>
